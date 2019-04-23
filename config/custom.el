@@ -5,12 +5,9 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(company-auto-complete t)
  '(company-auto-complete-chars (quote (32 95 40 41 119 46)))
+ '(company-idle-delay 0.8)
  '(custom-enabled-themes (quote (wombat)))
- '(custom-safe-themes
-   (quote
-    ("f153e8ed90e4d79cf2c61560da2b3091d2f3b94da42aaddc707012be4608cf52" "cbe892ce669f001193ccbb3b50a6fa402fe2560b3fe802354d73aeb0710a1c63" default)))
  '(dabbrev-case-replace nil)
  '(delete-selection-mode t)
  '(gc-cons-threshold 100000000)
@@ -22,7 +19,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (workgroups2 persp-projectile perspective treemacs-magit rainbow-delimiter rainbow-delimite exec-path-from-shell nix-mode auto-package-update restclient indium frames-only-mode treemacs-projectile all-the-icons treemacs ace-window avy intero projectile haskell-process flycheck-haskell company-ghc company-ghci company-cabal haskell-mode company-web company-web-html js2-refactor company-tern js2-mode tide web-beautify json-mode web-mode pipenv company-quickhelp company-anaconda company-company anaconda-mode darktooth-theme undo-tree rainbow-mode rainbow-delimiters neotree magit flycheck doom-themes dashboard counsel company ace-jump-mode)))
+    (treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
  '(scroll-bar-mode nil)
  '(tab-width 2)
  '(tool-bar-mode nil)

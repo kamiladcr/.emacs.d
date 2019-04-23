@@ -1,9 +1,12 @@
+
 (defvar core-packages '( ace-window
                          auto-package-update
-                         avy company
+                         company
                          company-quickhelp
                          counsel
+                         counsel-projectile
                          doom-themes
+                         doom-modeline
                          exec-path-from-shell
                          flycheck
                          frames-only-mode
@@ -15,19 +18,28 @@
                          rainbow-delimiters
                          rainbow-mode
                          restclient
+                         solaire-mode
                          treemacs
                          treemacs-projectile
+                         treemacs-magit
                          undo-tree))
 (utils-install-packages core-packages)
 
 (exec-path-from-shell-initialize)
 
+;; Transparent titlebar for Mac
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+
 ;; Doom theme
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 (load-theme 'doom-opera t)
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
+
+;; Enable fancy modeline
+(doom-modeline-mode 1)
+
+;; Fancy stuff
+(solaire-global-mode 1)
 
 ;; Turn on ivy
 (ivy-mode 1)
@@ -67,6 +79,9 @@
 
 ;; Enable projectile
 (projectile-mode)
+
+;; Enable counsel-projectile front-end
+(counsel-projectile-mode)
 
 ;; Auto-update packages
 (auto-package-update-maybe)

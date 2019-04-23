@@ -5,6 +5,7 @@
 								 text-layer
 								 python-layer
 								 javascript-layer
+                 elm-layer
                  haskell-layer
                  typescript-layer
 								 ))
@@ -13,9 +14,10 @@
 					(lambda ()
 						(company-mode)
 						(company-quickhelp-mode)
-            (flyspell-mode)
+          ;;(flyspell-mode)
 						(linum-mode)
 						(add-to-list 'company-backends 'company-files)
+						(add-to-list 'company-backends '(company-capf :with company-dabbrev))
 						(show-paren-mode)
 						(rainbow-mode)
 						(rainbow-delimiters-mode)))

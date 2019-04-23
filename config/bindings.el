@@ -26,7 +26,7 @@
 (global-set-key (kbd "C-x k") 'kill-buffer-and-window)
 
 ;; Force company
-(global-set-key (kbd "M-SPC") 'company-complete)
+(global-set-key (kbd "M-/") 'company-complete)
 
 ;; Neotree show/hide
 (global-set-key (kbd "C-M-SPC") 'treemacs)
@@ -44,13 +44,9 @@
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 (global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-(global-set-key (kbd "C-c p s") 'projectile-persp-switch-project)
-
+(global-set-key (kbd "C-c C-s") 'projectile-persp-switch-project)
 
 (provide 'bindings)
