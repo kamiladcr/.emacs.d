@@ -1,4 +1,5 @@
 
+
 (defvar core-packages '( ace-window
                          auto-package-update
                          company
@@ -34,12 +35,15 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 (load-theme 'doom-opera t)
+(doom-themes-visual-bell-config)
 
 ;; Enable fancy modeline
 (doom-modeline-mode 1)
+(setq doom-modeline-height 15)
 
 ;; Fancy stuff
-(solaire-global-mode 1)
+;;(solaire-global-mode 1)
+;;(solaire-mode-swap-bg)
 
 ;; Turn on ivy
 (ivy-mode 1)
