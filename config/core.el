@@ -19,7 +19,6 @@
                          rainbow-delimiters
                          rainbow-mode
                          restclient
-                         solaire-mode
                          treemacs
                          treemacs-projectile
                          treemacs-magit
@@ -36,10 +35,6 @@
 
 ;; Enable fancy modeline
 (mood-line-mode)
-
-;; Fancy stuff
-;;(solaire-global-mode 1)
-;;(solaire-mode-swap-bg)
 
 ;; Turn on ivy
 (ivy-mode 1)
