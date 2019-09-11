@@ -2,6 +2,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "layers"))
 
 (mapc 'require '(
+                 fira-code-mode
 								 text-layer
 								 python-layer
 								 javascript-layer
@@ -12,6 +13,7 @@
 
 (add-hook 'prog-mode-hook
 					(lambda ()
+            (fira-code-mode 1)
 						(company-mode)
 						(company-quickhelp-mode)
           ;;(flyspell-mode)

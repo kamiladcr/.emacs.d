@@ -33,6 +33,9 @@
 ;; My favorite theme
 (load-theme 'nord t)
 
+;; My favorite font
+(set-frame-font "Fira Code 12" nil t)
+
 ;; Enable fancy modeline
 (mood-line-mode)
 

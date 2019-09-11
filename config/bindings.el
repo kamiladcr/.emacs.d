@@ -49,4 +49,7 @@
 
 (global-set-key (kbd "C-c C-s") 'projectile-persp-switch-project)
 
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (provide 'bindings)
