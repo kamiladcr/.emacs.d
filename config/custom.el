@@ -20,7 +20,9 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (t rjsx-mode js2-refactor js2-mode anaconda-mode treemacs perspective projectile flycheck counsel company ace-window treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
+    (mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
+ '(python-indent-offset 2)
+ '(python-shell-interpreter "python3")
  '(scroll-bar-mode nil)
  '(tab-width 2)
  '(tool-bar-mode nil)

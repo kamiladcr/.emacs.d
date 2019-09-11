@@ -4,8 +4,8 @@
                          company-quickhelp
                          counsel
                          counsel-projectile
-                         doom-themes
-                         doom-modeline
+                         nord-theme
+                         mood-line
                          exec-path-from-shell
                          flycheck
                          frames-only-mode
@@ -17,7 +17,6 @@
                          rainbow-delimiters
                          rainbow-mode
                          restclient
-                         solaire-mode
                          treemacs
                          treemacs-projectile
                          treemacs-magit
@@ -31,19 +30,11 @@
 ;; Transparent titlebar for Mac
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 
-;; Doom theme
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-(load-theme 'doom-opera t)
-(doom-themes-visual-bell-config)
+;; My favorite theme
+(load-theme 'nord t)
 
 ;; Enable fancy modeline
-(doom-modeline-mode 1)
-(setq doom-modeline-height 15)
-
-;; Fancy stuff
-;;(solaire-global-mode 1)
-;;(solaire-mode-swap-bg)
+(mood-line-mode)
 
 ;; Turn on ivy
 (ivy-mode 1)
