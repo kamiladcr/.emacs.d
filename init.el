@@ -31,3 +31,4 @@
 
 (require 'server)
 (unless (server-running-p) (server-start))
+(put 'erase-buffer 'disabled nil)
