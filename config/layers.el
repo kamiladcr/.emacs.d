@@ -5,9 +5,9 @@
 								 text-layer
 								 python-layer
 								 javascript-layer
+                 typescript-layer
                  elm-layer
                  haskell-layer
-                 typescript-layer
 								 ))
 
 (add-hook 'prog-mode-hook

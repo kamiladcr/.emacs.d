@@ -1,5 +1,3 @@
-
-
 (defvar core-packages '( ace-window
                          auto-package-update
                          company
@@ -27,6 +25,8 @@
 (utils-install-packages core-packages)
 
 (exec-path-from-shell-initialize)
+
+(frames-only-mode 1)
 
 ;; Transparent titlebar for Mac
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
