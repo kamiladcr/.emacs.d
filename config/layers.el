@@ -9,6 +9,7 @@
                  typescript-layer
                  elm-layer
                  haskell-layer
+                 nix-layer
 								 ))
 
 (add-hook 'prog-mode-hook

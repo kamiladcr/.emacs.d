@@ -3,6 +3,9 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+;; That makes me happy with cyrillic layout
+(setq default-input-method 'russian-computer)
+
 ;; Font size
 (define-key global-map (kbd "C-=") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -32,7 +35,7 @@
 (global-set-key (kbd "C-M-SPC") 'treemacs)
 (glasses-mode)
 ;; Ace-jump-mode
-(global-set-key (kbd "M-j") 'avy-goto-char)
+(global-set-key (kbd "M-j") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-o") 'ace-window)
 
 ;; Ivy keys

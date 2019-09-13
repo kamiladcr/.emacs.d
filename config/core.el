@@ -10,7 +10,6 @@
                          flycheck
                          frames-only-mode
                          magit
-                         nix-mode
                          projectile
                          perspective
                          persp-projectile
@@ -25,7 +24,7 @@
 
 (exec-path-from-shell-initialize)
 
-(frames-only-mode 1)
+;;(frames-only-mode 1)
 
 ;; Transparent titlebar for Mac
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
