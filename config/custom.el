@@ -10,6 +10,7 @@
  '(custom-enabled-themes (quote (wombat)))
  '(dabbrev-case-replace nil)
  '(delete-selection-mode t)
+ '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(gc-cons-threshold 100000000)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -20,8 +21,8 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (company-nixos-options mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
- '(python-indent-offset 2)
+    (reverse-im company-nixos-options mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
+ '(python-indent-offset 4)
  '(python-shell-interpreter "python3")
  '(scroll-bar-mode nil)
  '(tab-width 2)

@@ -8,6 +8,7 @@
 	(interactive)
 	(anaconda-mode)
 	(anaconda-eldoc-mode)
+  (setq flycheck-python-flake8-executable "flake8")
 	(pipenv-mode)
 	(add-to-list 'company-backends 'company-anaconda)
 	(setenv "PYTHONIOENCODING" "utf-8"))

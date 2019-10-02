@@ -8,6 +8,9 @@
 		("melpa" . "http://melpa.milkbox.net/packages/")
 		))
 (mapc (lambda (item) (add-to-list 'package-archives item)) package-repos)
+
+;; Patch for Emacs 26
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (package-initialize)
 
 ;; Custom location for standard settings from M-x customize

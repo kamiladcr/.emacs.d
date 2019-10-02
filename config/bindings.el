@@ -3,9 +3,6 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
-;; That makes me happy with cyrillic layout
-(setq default-input-method 'russian-computer)
-
 ;; Font size
 (define-key global-map (kbd "C-=") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -54,5 +51,8 @@
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; Delete instead of kill
+(global-set-key (kbd "M-DEL") 'backward-delete-word)
 
 (provide 'bindings)
