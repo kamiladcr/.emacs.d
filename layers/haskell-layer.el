@@ -1,13 +1,15 @@
 (utils-install-packages '(
-												  haskell-mode
+                          haskell-mode
                           intero
 													))
 
 (defun setup-haskell-mode ()
-	(interactive)
+  (interactive)
   (haskell-indentation-mode)
   (intero-mode))
 
-(add-hook 'haskell-mode-hook #'setup-haskell-mode)
-  
+(add-hook 'haskell-mode-hook 'setup-haskell-mode)
+
+(custom-set-variables '(haskell-stylish-on-save t))
+
 (provide 'haskell-layer)

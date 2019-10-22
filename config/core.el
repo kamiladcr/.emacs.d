@@ -4,7 +4,8 @@
                          company-quickhelp
                          counsel
                          counsel-projectile
-                         nord-theme
+                         ein
+                         kaolin-themes
                          mood-line
                          exec-path-from-shell
                          flycheck
@@ -30,7 +31,7 @@
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 
 ;; My favorite theme
-(load-theme 'nord t)
+(load-theme 'kaolin-valley-dark t)
 
 ;; My favorite font
 (set-frame-font "Fira Code 12" nil t)
