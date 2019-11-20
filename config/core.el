@@ -1,34 +1,39 @@
-(defvar core-packages '( ace-window
-                         auto-package-update
-                         company
-                         company-quickhelp
-                         counsel
-                         counsel-projectile
-                         ein
-                         kaolin-themes
-                         mood-line
-                         exec-path-from-shell
-                         flycheck
-                         frames-only-mode
-                         magit
-                         projectile
-                         perspective
-                         persp-projectile
-                         rainbow-delimiters
-                         rainbow-mode
-                         restclient
-                         treemacs
-                         treemacs-projectile
-                         treemacs-magit
-                         undo-tree))
+(defvar core-packages '(
+                        auto-package-update
+                        buffer-move
+                        company
+                        company-lsp
+                        company-quickhelp
+                        counsel
+                        counsel-projectile
+                        doom-modeline
+                        exec-path-from-shell
+                        exwm
+                        flycheck
+                        flyspell-correct-ivy
+                        kaolin-themes
+                        lsp-treemacs
+                        lsp-ui
+                        magit
+                        projectile
+                        rainbow-delimiters
+                        rainbow-mode
+                        restclient
+                        treemacs
+                        treemacs-magit
+                        treemacs-projectile
+                        undo-tree
+                        which-key
+                        winum
+                        ))
 (utils-install-packages core-packages)
 
+;; Shell should remember path
 (exec-path-from-shell-initialize)
 
-;;(frames-only-mode 1)
-
 ;; Transparent titlebar for Mac
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist
+             '(ns-transparent-titlebar . t))
 
 ;; My favorite theme
 (load-theme 'kaolin-valley-dark t)
@@ -37,21 +42,22 @@
 (set-frame-font "Fira Code 12" nil t)
 
 ;; Enable fancy modeline
-(mood-line-mode)
+(doom-modeline-mode)
+
+;; Jump to window
+(winum-mode)
+
+;; Little help to remember the shortcuts
+;;(which-key-mode)
+;;(which-key-setup-minibuffer)
 
 ;; Turn on ivy
 (ivy-mode 1)
-
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
-;; Fuzzy match
-(setq ivy-initial-inputs-alist nil)
+(setq ivy-initial-inputs-alist nil) ;; Fuzzy match
 
-;; Always show window nubmers
-(ace-window-display-mode)
-
-;; Global undo tree mode
-(global-undo-tree-mode)
+(global-undo-tree-mode) ;; Global undo tree mode
 
 ;; Always auto-close parantheses and other pairs
 (electric-pair-mode)
@@ -69,11 +75,8 @@
 (setq backup-directory-alist
 			`((".*" . ,temporary-file-directory)))
 
-;; Eable global spellcheck
+;; Enable global spellcheck
 (global-flycheck-mode)
-
-;; Enable perspective mode
-(persp-mode +1)
 
 ;; Enable projectile
 (projectile-mode)
@@ -83,6 +86,11 @@
 
 ;; Auto-update packages
 (auto-package-update-maybe)
+
+;; Enable recentf-mode
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
 
 ;; Delete show delete instead of copying into kill ring
 (defun delete-word (arg)

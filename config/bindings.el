@@ -10,13 +10,6 @@
 ;; Shift-arrow for window switch
 (windmove-default-keybindings)
 
-;; Fast open init file
-(defun find-user-init-file ()
-  "Edit the `user-init-file', in another window."
-  (interactive)
-  (find-file-other-frame user-init-file))
-(global-set-key (kbd "C-c i") 'find-user-init-file)
-
 ;; Bind whitespace cleanup to a key
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 ;; Align code blocks
@@ -28,31 +21,24 @@
 ;; Force company
 (global-set-key (kbd "M-/") 'company-complete)
 
-;; Neotree show/hide
-(global-set-key (kbd "C-M-SPC") 'treemacs)
-(glasses-mode)
 ;; Ace-jump-mode
 (global-set-key (kbd "M-j") 'avy-goto-word-or-subword-1)
-(global-set-key (kbd "M-o") 'ace-window)
 
 ;; Ivy keys
 (global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "C-x b") 'counsel-switch-buffer)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-(global-set-key (kbd "C-c C-s") 'projectile-persp-switch-project)
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Delete instead of kill
 (global-set-key (kbd "M-DEL") 'backward-delete-word)
+
+;; Flyspell via ivy
+(global-set-key (kbd "M-$") 'flyspell-correct-wrapper)
 
 (provide 'bindings)

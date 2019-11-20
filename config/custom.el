@@ -5,35 +5,41 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(company-auto-complete-chars (quote (32 95 40 41 119 46)))
+ '(blink-cursor-mode nil)
+ '(company-auto-complete-chars '(32 95 40 41 119 46))
  '(company-idle-delay 0.8)
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes '(wombat))
  '(dabbrev-case-replace nil)
+ '(default-input-method nil)
  '(delete-selection-mode t)
- '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
+ '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
  '(gc-cons-threshold 100000000)
  '(haskell-stylish-on-save t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(initial-major-mode (quote text-mode))
+ '(initial-major-mode 'text-mode)
  '(initial-scratch-message "")
  '(js-indent-level 2)
  '(json-reformat:indent-width 2)
  '(menu-bar-mode nil)
+ '(mouse-autoselect-window t)
  '(package-selected-packages
-   (quote
-    (haskell-mode js2-refactor anaconda-mode treemacs perspective projectile flycheck counsel company ace-window ein vterm kaolin-themes monokai-theme monokai-pro-theme gruvbox-theme dante dante-mode company-lsp company-ghci lsp-haskell lsp-ui lsp-mode reverse-im company-nixos-options mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
+   '(buffer-mode buffer-move winum js2-mode exwm which-key vterm-toggle exwm-config google lsp-treemacs lsp fsharp-mode flyspell-correct-ivy haskell-mode js2-refactor anaconda-mode treemacs perspective projectile flycheck counsel company ein vterm kaolin-themes monokai-theme monokai-pro-theme gruvbox-theme dante dante-mode company-lsp company-ghci lsp-haskell lsp-ui lsp-mode reverse-im company-nixos-options mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update))
  '(python-indent-offset 2)
  '(python-shell-interpreter "python3")
  '(scroll-bar-mode nil)
  '(tab-width 2)
+ '(telega-server-command
+   "/nix/store/vwa2jm2acvvs8fqbdf7bd9dx86vp58ss-emacs-telega-20191025.1359/bin/telega-server/bin/telega-server")
+ '(telega-server-libs-prefix "/n19vnx11qf03zc8sljjfam6di9xa5lr8-tdlib-1.5.0")
  '(tool-bar-mode nil)
  '(typescript-indent-level 2)
  '(visible-bell t)
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2)
- '(web-mode-sql-indent-offset 2))
+ '(web-mode-sql-indent-offset 2)
+ '(winum-auto-setup-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
