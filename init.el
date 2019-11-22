@@ -24,9 +24,9 @@
 				'(
   				utils
 					core
+          wmanager
 					layers
 					bindings
-          wmanager
 					)))
 (add-hook 'after-init-hook 'load-other-settings)
 
