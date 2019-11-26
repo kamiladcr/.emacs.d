@@ -12,6 +12,7 @@
 
 ;; Bind whitespace cleanup to a key
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
+
 ;; Align code blocks
 (global-set-key (kbd "C-c a") 'align-regexp)
 
@@ -42,5 +43,8 @@
 
 ;; Kill emacs process on exit
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
+
+;; Toggle treemacs
+(global-set-key (kbd "C-<tab>") 'treemacs)
 
 (provide 'bindings)

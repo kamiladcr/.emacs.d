@@ -24,7 +24,7 @@
 				'(
   				utils
 					core
-          wmanager
+          ;;wmanager
 					layers
 					bindings
 					)))

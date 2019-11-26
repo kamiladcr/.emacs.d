@@ -130,7 +130,6 @@
         (,(kbd "s-Q")                     . kill-buffer-and-window)
         (,(kbd "s-d")                     . counsel-linux-app)
         (,(kbd "s-l")                     . screen-lock)
-        (,(kbd "s-<tab>")                 . treemacs)
         (,(kbd "<print>")                 . screenshot)
         (,(kbd "s-<return>")              . terminal-new)
         (,(kbd "s-i")                     . exwm-input-toggle-keyboard)
