@@ -13,6 +13,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.liquid\\'" . web-mode))
 
 (add-hook 'web-mode-hook (lambda ()
                            (company-mode +1)

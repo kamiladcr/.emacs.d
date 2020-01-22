@@ -47,4 +47,7 @@
 ;; Toggle treemacs
 (global-set-key (kbd "C-<tab>") 'treemacs)
 
+;; Copy paste for others
+(global-set-key (kbd "C-z") 'undo-tree-undo)
+
 (provide 'bindings)

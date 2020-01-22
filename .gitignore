@@ -1,11 +1,3 @@
-*.*~
-elpa
-.cache
-.last-package-update-day
-auto-save-list
-transient
-network-security.data
-recentf
-projectile-bookmarks.eld
-anaconda-mode
-games
+*
+!config
+!layers

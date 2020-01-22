@@ -1,4 +1,5 @@
 (defvar core-packages '(
+                        all-the-icons
                         auto-package-update
                         buffer-move
                         company
@@ -7,14 +8,19 @@
                         counsel
                         counsel-projectile
                         doom-modeline
+                        doom-themes
                         exec-path-from-shell
                         exwm
                         flycheck
                         flyspell-correct-ivy
+                        frames-only-mode
                         kaolin-themes
+                        lsp-mode
                         lsp-treemacs
                         lsp-ui
                         magit
+                        markdown-preview-mode
+                        multiple-cursors
                         projectile
                         rainbow-delimiters
                         rainbow-mode
@@ -28,6 +34,9 @@
                         ))
 (utils-install-packages core-packages)
 
+;; Every frame as X window
+(frames-only-mode)
+
 ;; Shell should remember path
 (exec-path-from-shell-initialize)
 
@@ -36,28 +45,50 @@
              '(ns-transparent-titlebar . t))
 
 ;; My favorite theme
-(load-theme 'kaolin-valley-dark t)
+
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+(load-theme 'doom-molokai t)
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Enable custom neotree theme (all-the-icons must be installed!)
+(doom-themes-neotree-config)
+;; or for treemacs users
+(setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+(doom-themes-treemacs-config)
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
+
+;; Make mode line a bit smaller
+(setq doom-modeline-height 36)
+(set-face-attribute 'mode-line nil :height 100)
+(set-face-attribute 'mode-line-inactive nil :height 100)
 
 ;; My favorite font
 (set-frame-font "Fira Code 12" nil t)
 
 ;; Enable fancy modeline
+(fset 'battery-update #'ignore) ;; This is fix for battery issue
 (doom-modeline-mode)
 
 ;; Jump to window
 (winum-mode)
 
 ;; Little help to remember the shortcuts
-;;(which-key-mode)
-;;(which-key-setup-minibuffer)
+(which-key-mode)
+(which-key-setup-minibuffer)
 
 ;; Turn on ivy
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
-(setq ivy-initial-inputs-alist nil) ;; Fuzzy match
 
-(global-undo-tree-mode) ;; Global undo tree mode
+;; Global undo tree mode
+(global-undo-tree-mode)
 
 ;; Always auto-close parantheses and other pairs
 (electric-pair-mode)
@@ -104,5 +135,18 @@ With argument ARG, do this that many times."
 With argument ARG, do this that many times."
   (interactive "p")
   (delete-word (- arg)))
+
+;; Keep your temporary files away from project
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+
+;; Treemacs to have smaller font
+(defun text-scale-twice ()
+  (interactive)
+  (progn (text-scale-adjust 0) (text-scale-decrease 2)))
+
+(add-hook 'treemacs-mode-hook 'text-scale-twice)
 
 (provide 'core)

@@ -14,12 +14,9 @@
 
 (add-hook 'prog-mode-hook
 					(lambda ()
-						(company-mode)
-						(company-quickhelp-mode)
-            (flyspell-prog-mode)
+            (company-quickhelp-mode)
 						(linum-mode)
-						(add-to-list 'company-backends 'company-files)
-						(add-to-list 'company-backends '(company-capf :with company-dabbrev))
+						(push 'company-files company-backends)
 						(show-paren-mode)
 						(rainbow-mode)
 						(rainbow-delimiters-mode)))

@@ -30,7 +30,7 @@
 					)))
 (add-hook 'after-init-hook 'load-other-settings)
 
-
-(require 'server)
-(unless (server-running-p) (server-start))
-(put 'erase-buffer 'disabled nil)
+;; (require 'server)
+;; (unless (server-running-p) (server-start))
+;; (put 'erase-buffer 'disabled nil)
+ 
