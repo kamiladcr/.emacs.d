@@ -13,7 +13,6 @@
                         exwm
                         flycheck
                         flyspell-correct-ivy
-                        frames-only-mode
                         kaolin-themes
                         lsp-mode
                         lsp-treemacs
@@ -33,9 +32,6 @@
                         winum
                         ))
 (utils-install-packages core-packages)
-
-;; Every frame as X window
-(frames-only-mode)
 
 ;; Shell should remember path
 (exec-path-from-shell-initialize)
@@ -80,7 +76,7 @@
 
 ;; Little help to remember the shortcuts
 (which-key-mode)
-(which-key-setup-minibuffer)
+(which-key-setup-side-window-bottom)
 
 ;; Turn on ivy
 (ivy-mode 1)
