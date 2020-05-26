@@ -3,10 +3,10 @@
 ;; Configure Marmalade and MELPA repositories.
 ;; Packages available on Marmalade will have precedence.
 (defvar package-repos
-	'(
-		("marmalade" . "https://marmalade-repo.org/packages/")
-		("melpa" . "http://melpa.milkbox.net/packages/")
-		))
+  '(
+    ("marmalade" . "https://marmalade-repo.org/packages/")
+    ("melpa" . "http://melpa.milkbox.net/packages/")
+    ))
 (mapc (lambda (item) (add-to-list 'package-archives item)) package-repos)
 
 (package-initialize)
@@ -20,17 +20,18 @@
 
 ;; Import configuration packages
 (defun load-other-settings ()
-	(mapc 'require
-				'(
-  				utils
-					core
+  (mapc 'require
+        '(
+          utils
+          core
           ;;wmanager
-					layers
-					bindings
-					)))
+          layers
+          bindings
+          )))
 (add-hook 'after-init-hook 'load-other-settings)
 
 ;; (require 'server)
 ;; (unless (server-running-p) (server-start))
-;; (put 'erase-buffer 'disabled nil)
- 
+
+(put 'upcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)

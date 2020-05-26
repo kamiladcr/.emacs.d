@@ -5,9 +5,17 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(auto-revert-check-vc-info t)
+ '(auto-revert-interval 2)
+ '(backward-delete-char-untabify-method (quote hungry))
  '(blink-cursor-mode nil)
+ '(c-basic-offset 4)
+ '(centaur-tabs-set-bar (quote left))
+ '(centaur-tabs-set-icons t)
  '(company-auto-complete-chars (quote (32 95 40 41 119 46)))
  '(company-idle-delay 0.8)
+ '(company-require-match nil)
+ '(company-selection-wrap-around t)
  '(company-tooltip-maximum-width 100)
  '(dabbrev-case-replace nil)
  '(default-input-method nil)
@@ -20,10 +28,17 @@
  '(inhibit-startup-screen t)
  '(initial-major-mode (quote text-mode))
  '(initial-scratch-message "")
- '(ivy-initial-inputs-alist nil)
+ '(ivy-initial-inputs-alist
+   (quote
+    ((counsel-minor . "^+")
+     (counsel-package . "^+")
+     (counsel-org-capture . "^")
+     (counsel-M-x . "")
+     (counsel-describe-symbol . "^")
+     (counsel-describe-function . "^")
+     (counsel-describe-variable . "^"))))
  '(js-indent-level 2)
  '(json-reformat:indent-width 2)
- '(lsp-fsharp-server-runtime (quote net-core))
  '(lsp-log-io nil)
  '(lsp-signature-auto-activate nil)
  '(lsp-signature-render-documentation nil)
@@ -34,7 +49,7 @@
  '(mouse-autoselect-window t)
  '(package-selected-packages
    (quote
-    (anaconda-eldoc-mode jedi company-jedi elpy multiple-cursors markdown-preview-mode lsp-company all-the-icons lsp-elixir buffer-mode buffer-move winum js2-mode exwm which-key vterm-toggle exwm-config google lsp-treemacs lsp fsharp-mode flyspell-correct-ivy haskell-mode js2-refactor anaconda-mode treemacs perspective projectile flycheck counsel company ein vterm kaolin-themes monokai-theme monokai-pro-theme gruvbox-theme dante dante-mode company-lsp company-ghci lsp-haskell lsp-ui lsp-mode reverse-im company-nixos-options mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
+    (eglot tidal eglot-fsharp omnisharp protobuf-mode magit-gerrit2 jinja2-mode csharp-mode magit-gerrit centaur-tabs yaml-mode dockerfile-mode anaconda-eldoc-mode jedi company-jedi elpy multiple-cursors markdown-preview-mode lsp-company all-the-icons lsp-elixir buffer-mode buffer-move winum js2-mode exwm which-key vterm-toggle exwm-config google lsp-treemacs lsp fsharp-mode flyspell-correct-ivy haskell-mode js2-refactor anaconda-mode treemacs perspective projectile flycheck counsel company ein vterm kaolin-themes monokai-theme monokai-pro-theme gruvbox-theme dante dante-mode company-lsp company-ghci lsp-haskell lsp-ui lsp-mode reverse-im company-nixos-options mood-line nord-theme treemacs-magit solaire-mode doom-modeline web-mode web-beautify undo-tree treemacs-projectile tide restclient rainbow-mode rainbow-delimiters pipenv persp-projectile nix-mode magit json-mode intero indium frames-only-mode exec-path-from-shell elm-mode doom-themes counsel-projectile company-web company-tern company-quickhelp company-anaconda auto-package-update)))
  '(python-shell-interpreter "python3")
  '(scroll-bar-mode nil)
  '(tab-width 2)

@@ -17,13 +17,13 @@
 (global-set-key (kbd "C-c a") 'align-regexp)
 
 ;; Kill buffer and window by default
-(global-set-key (kbd "C-x k") 'kill-buffer-and-window)
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; Force company
 (global-set-key (kbd "M-/") 'company-complete)
 
 ;; Ace-jump-mode
-(global-set-key (kbd "M-j") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "M-j") 'avy-goto-word-1)
 
 ;; Ivy keys
 (global-set-key "\C-s" 'swiper)
@@ -49,5 +49,14 @@
 
 ;; Copy paste for others
 (global-set-key (kbd "C-z") 'undo-tree-undo)
+
+;; Tabs
+(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
+(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+(global-set-key (kbd "C-c t s") 'centaur-tabs-counsel-switch-group)
+
+;; ;; flycheck
+;; (global-set-key (kbd "M-p")  'flycheck-previous-error)
+;; (global-set-key (kbd "M-n")  'flycheck-next-error)
 
 (provide 'bindings)

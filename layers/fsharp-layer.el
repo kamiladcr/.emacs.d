@@ -4,10 +4,6 @@
                           company-lsp
                           ))
 
-;; (add-to-list 'load-path "~/.emacs.d/packages/emacs-fsharp-mode/")
-;; (autoload 'fsharp-mode "fsharp-mode"     "Major mode for editing F# code." t)
-;; (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
-
 (defun setup-fsharp-mode ()
   (interactive)
   (push 'company-lsp company-backends)
@@ -17,5 +13,8 @@
   )
 
 (add-hook 'fsharp-mode-hook 'setup-fsharp-mode)
+
+;; (setq lsp-fsharp-server-download-url "https://github.com/fsharp/FsAutoComplete/releases/download/0.41.0/fsautocomplete.netcore.zip")
+(setq lsp-fsharp-server-runtime 'net-core)
 
 (provide 'fsharp-layer)

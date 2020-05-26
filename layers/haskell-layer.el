@@ -1,15 +1,17 @@
 (utils-install-packages '(
                           haskell-mode
-                          intero
-													))
+                          lsp-haskell
+                          ))
 
 (defun setup-haskell-mode ()
   (interactive)
   (haskell-indentation-mode)
-  (intero-mode))
+  ;; (lsp)
+  )
+
+(setq lsp-haskell-process-path-hie "hie-wrapper")
+(custom-set-variables '(haskell-stylish-on-save t))
 
 (add-hook 'haskell-mode-hook 'setup-haskell-mode)
-
-(custom-set-variables '(haskell-stylish-on-save t))
 
 (provide 'haskell-layer)

@@ -2,11 +2,14 @@
                         all-the-icons
                         auto-package-update
                         buffer-move
+                        cl-lib
                         company
                         company-lsp
                         company-quickhelp
                         counsel
+                        eglot
                         counsel-projectile
+                        dockerfile-mode
                         doom-modeline
                         doom-themes
                         exec-path-from-shell
@@ -21,6 +24,7 @@
                         markdown-preview-mode
                         multiple-cursors
                         projectile
+                        protobuf-mode
                         rainbow-delimiters
                         rainbow-mode
                         restclient
@@ -30,6 +34,7 @@
                         undo-tree
                         which-key
                         winum
+                        yaml-mode
                         ))
 (utils-install-packages core-packages)
 
@@ -40,9 +45,7 @@
 (add-to-list 'default-frame-alist
              '(ns-transparent-titlebar . t))
 
-;; My favorite theme
-
-;; Global settings (defaults)
+;; Doom theme
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 (load-theme 'doom-molokai t)
@@ -50,8 +53,6 @@
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
 
-;; Enable custom neotree theme (all-the-icons must be installed!)
-(doom-themes-neotree-config)
 ;; or for treemacs users
 (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
 (doom-themes-treemacs-config)
@@ -100,7 +101,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq backup-directory-alist
-			`((".*" . ,temporary-file-directory)))
+      `((".*" . ,temporary-file-directory)))
 
 ;; Enable global spellcheck
 (global-flycheck-mode)
@@ -143,6 +144,23 @@ With argument ARG, do this that many times."
   (interactive)
   (progn (text-scale-adjust 0) (text-scale-decrease 2)))
 
+;; I like when treemacs is more compact then other parts
 (add-hook 'treemacs-mode-hook 'text-scale-twice)
+
+;; Whitespace-cleanup all files in project
+(defun projectile-whitespace-cleanup ()
+  "Deletes trailing spaces from all projectile project files."
+  (interactive)
+  (let ((project-files (projectile-current-project-files)))
+    (dolist (pr project-files)
+      (when (file-exists-p pr)
+        (message "clearing trailing whitespace in %s" pr)
+        (with-temp-buffer
+          (insert-file-contents pr)
+          (whitespace-cleanup)
+          (write-file pr))))))
+
+;; Auto restart
+(setq lsp-restart 'auto-restart)
 
 (provide 'core)
