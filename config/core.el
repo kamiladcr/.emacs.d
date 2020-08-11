@@ -2,16 +2,16 @@
                         all-the-icons
                         auto-package-update
                         buffer-move
+                        centered-cursor-mode
                         cl-lib
                         company
-                        company-lsp
                         company-quickhelp
                         counsel
-                        eglot
                         counsel-projectile
                         dockerfile-mode
                         doom-modeline
                         doom-themes
+                        eglot
                         exec-path-from-shell
                         exwm
                         flycheck
@@ -28,6 +28,7 @@
                         rainbow-delimiters
                         rainbow-mode
                         restclient
+                        solaire-mode
                         treemacs
                         treemacs-magit
                         treemacs-projectile
@@ -35,6 +36,7 @@
                         which-key
                         winum
                         yaml-mode
+                        yascroll
                         ))
 (utils-install-packages core-packages)
 
@@ -61,16 +63,11 @@
 (doom-themes-org-config)
 
 ;; Make mode line a bit smaller
-(setq doom-modeline-height 36)
-(set-face-attribute 'mode-line nil :height 100)
-(set-face-attribute 'mode-line-inactive nil :height 100)
+(doom-modeline-mode)
+(setq doom-modeline-height 30)
 
 ;; My favorite font
-(set-frame-font "Fira Code 12" nil t)
-
-;; Enable fancy modeline
-(fset 'battery-update #'ignore) ;; This is fix for battery issue
-(doom-modeline-mode)
+(set-frame-font "DejaVu Sans Mono 11" nil t)
 
 ;; Jump to window
 (winum-mode)
@@ -162,5 +159,14 @@ With argument ARG, do this that many times."
 
 ;; Auto restart
 (setq lsp-restart 'auto-restart)
+
+;; Remove stupid default regex symbols
+(setq ivy-initial-inputs-alist nil)
+
+(setq sql-postgres-login-params
+      '((server :default "localhost")
+        (port :default 5432)
+        (user :default "irma")
+        (database :default "irma.ensemble")))
 
 (provide 'core)

@@ -3,7 +3,7 @@
                           tidal
                           ))
 
-(setq tidal-interpreter "ghci -package tidal")
-(setq tidal-boot-script-path "/nix/store/45qpy1vdgijq6hrsfwf3bn8ppzizaghn-tidal-1.4.8-data/share/ghc-8.8.3/x86_64-linux-ghc-8.8.3/tidal-1.4.8/BootTidal.hs")
+(setq tidal-interpreter "ghci")
+(setq tidal-boot-script-path "/home/ezemtsov/.cabal/store/ghc-8.8.3/tidal-1.6.1-660c97ba6379f07685a75a8ca2622ec77cc51a133e11480febe3ca676412a3bb/share/BootTidal.hs")
 
 (provide 'tidal-layer)

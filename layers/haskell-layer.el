@@ -6,11 +6,12 @@
 (defun setup-haskell-mode ()
   (interactive)
   (haskell-indentation-mode)
-  ;; (lsp)
+  (lsp)
+  (lsp-ui-mode)
   )
 
-(setq lsp-haskell-process-path-hie "hie-wrapper")
-(custom-set-variables '(haskell-stylish-on-save t))
+(setq lsp-haskell-process-path-hie "ghcide")
+(setq lsp-haskell-process-args-hie "")
 
 (add-hook 'haskell-mode-hook 'setup-haskell-mode)
 

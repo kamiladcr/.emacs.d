@@ -5,7 +5,7 @@
 (defvar package-repos
   '(
     ("marmalade" . "https://marmalade-repo.org/packages/")
-    ("melpa" . "http://melpa.milkbox.net/packages/")
+    ("melpa" . "https://melpa.org/packages/")
     ))
 (mapc (lambda (item) (add-to-list 'package-archives item)) package-repos)
 

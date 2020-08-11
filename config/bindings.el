@@ -24,9 +24,10 @@
 
 ;; Ace-jump-mode
 (global-set-key (kbd "M-j") 'avy-goto-word-1)
+(global-set-key (kbd "M-k") 'avy-goto-char-in-line)
 
-;; Ivy keys
-(global-set-key "\C-s" 'swiper)
+;; ivy keys
+(global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
@@ -55,8 +56,12 @@
 (global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
 (global-set-key (kbd "C-c t s") 'centaur-tabs-counsel-switch-group)
 
-;; ;; flycheck
-;; (global-set-key (kbd "M-p")  'flycheck-previous-error)
-;; (global-set-key (kbd "M-n")  'flycheck-next-error)
+;; flycheck
+(global-set-key (kbd "M-p")  'flycheck-previous-error)
+(global-set-key (kbd "M-n")  'flycheck-next-error)
+
+;; lsp-mode
+(global-set-key (kbd "C-c l h") 'lsp-ui-doc-show)
+(global-set-key (kbd "C-c l i") 'lsp-ui-imenu)
 
 (provide 'bindings)
