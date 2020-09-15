@@ -20,18 +20,13 @@
 
 ;; Import configuration packages
 (defun load-other-settings ()
-  (mapc 'require
-        '(
-          utils
-          core
-          ;;wmanager
-          layers
-          bindings
-          )))
-(add-hook 'after-init-hook 'load-other-settings)
+  (mapc 'require '(utils
+                   core
+                   wmanager
+                   layers
+                   bindings)))
 
-;; (require 'server)
-;; (unless (server-running-p) (server-start))
+(add-hook 'after-init-hook 'load-other-settings)
 
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)

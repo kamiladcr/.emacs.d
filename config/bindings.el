@@ -7,7 +7,7 @@
 (define-key global-map (kbd "C-=") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
-;; Shift-arrow for window switch
+;; shift-arrow for window switch
 (windmove-default-keybindings)
 
 ;; Bind whitespace cleanup to a key
@@ -30,6 +30,7 @@
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "M-w") 'ivy-kill-ring-save)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
@@ -63,5 +64,8 @@
 ;; lsp-mode
 (global-set-key (kbd "C-c l h") 'lsp-ui-doc-show)
 (global-set-key (kbd "C-c l i") 'lsp-ui-imenu)
+
+(global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
+(global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-horizontally) (other-window 1)))
 
 (provide 'bindings)

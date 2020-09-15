@@ -11,18 +11,18 @@
                         dockerfile-mode
                         doom-modeline
                         doom-themes
-                        eglot
                         exec-path-from-shell
                         exwm
                         flycheck
                         flyspell-correct-ivy
-                        kaolin-themes
+                        gpastel
                         lsp-mode
                         lsp-treemacs
                         lsp-ui
                         magit
                         markdown-preview-mode
                         multiple-cursors
+                        nyan-mode
                         projectile
                         protobuf-mode
                         rainbow-delimiters
@@ -33,12 +33,15 @@
                         treemacs-magit
                         treemacs-projectile
                         undo-tree
+                        vterm
                         which-key
                         winum
                         yaml-mode
-                        yascroll
                         ))
 (utils-install-packages core-packages)
+
+;; Use gpastel for kill ring
+(gpastel-mode)
 
 ;; Shell should remember path
 (exec-path-from-shell-initialize)
@@ -51,9 +54,6 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 (load-theme 'doom-molokai t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
 
 ;; or for treemacs users
 (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
@@ -74,11 +74,9 @@
 
 ;; Little help to remember the shortcuts
 (which-key-mode)
-(which-key-setup-side-window-bottom)
 
 ;; Turn on ivy
 (ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 
 ;; Global undo tree mode
@@ -113,7 +111,8 @@
 (auto-package-update-maybe)
 
 ;; Enable recentf-mode
-(recentf-mode 1)
+(recentf-mode)
+(setq ivy-use-virtual-buffers t)
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
@@ -168,5 +167,8 @@ With argument ARG, do this that many times."
         (port :default 5432)
         (user :default "irma")
         (database :default "irma.ensemble")))
+
+(nyan-mode)
+(setq vterm-shell "fish")
 
 (provide 'core)
