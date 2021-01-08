@@ -1,14 +1,7 @@
 (require 'package)
 
-;; Configure Marmalade and MELPA repositories.
-;; Packages available on Marmalade will have precedence.
-(defvar package-repos
-  '(
-    ("marmalade" . "https://marmalade-repo.org/packages/")
-    ("melpa" . "https://melpa.org/packages/")
-    ))
-(mapc (lambda (item) (add-to-list 'package-archives item)) package-repos)
-
+;; Configure MELPA repositories.
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; Custom location for standard settings from M-x customize
