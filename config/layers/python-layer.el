@@ -1,13 +1,11 @@
 (utils-install-packages '(
-                          lsp-mode
-                          company-lsp
+                          company-jedi
                           ))
 
 (defun setup-python-mode ()
   (interactive)
-  (setenv "PYTHONIOENCODING" "utf-8")
-  (push 'company-lsp company-backends)
-  (lsp))
+  (push 'company-jedi company-backends)
+  (setenv "PYTHONIOENCODING" "utf-8"))
 
 (add-hook 'python-mode-hook #'setup-python-mode)
 
