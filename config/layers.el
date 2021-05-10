@@ -10,7 +10,9 @@
                  tidal-layer
                  fsharp-layer
                  csharp-layer
-                 nix-layer))
+                 nix-layer
+                 rust-layer
+                 clisp-layer))
 
 (add-hook 'before-save-hook
           (lambda ()
@@ -24,7 +26,8 @@
             (push 'company-files company-backends)
             (show-paren-mode)
             (rainbow-mode)
-            (rainbow-delimiters-mode)))
+            (rainbow-delimiters-mode)
+            (yas-minor-mode)))
 
 (add-hook 'text-mode-hook
           (lambda ()

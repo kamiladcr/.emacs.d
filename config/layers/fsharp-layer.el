@@ -1,11 +1,17 @@
 (utils-install-packages '(
                           fsharp-mode
+                          highlight-indent-guides
+                          ;; eglot-fsharp
                           lsp-mode
                           ))
+
+;; (require 'eglot-fsharp)
 
 (defun setup-fsharp-mode ()
   (interactive)
   (setq inferior-fsharp-program "dotnet fsi")
+  ;; (setq lsp-enable-snippet t)
+  (highlight-indent-guides-mode)
   (lsp)
   (lsp-lens-mode)
   )

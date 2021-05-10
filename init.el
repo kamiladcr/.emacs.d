@@ -16,9 +16,9 @@
 (defun load-other-settings ()
   (mapc 'require '(utils
                    core
-                   wmanager
-                   layers
-                   bindings)))
+                   bindings
+                   ;; wmanager
+                   layers)))
 
 (add-hook 'after-init-hook 'load-other-settings)
 

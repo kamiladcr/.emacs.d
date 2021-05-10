@@ -1,6 +1,5 @@
 *
 !config
 !config/*
-!layers
-!layers/*
+!config/layers/*
 !gitignore

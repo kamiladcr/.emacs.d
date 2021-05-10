@@ -1,4 +1,5 @@
 (defvar core-packages '(
+                        transient
                         all-the-icons
                         auto-package-update
                         buffer-move
@@ -13,6 +14,7 @@
                         doom-themes
                         exec-path-from-shell
                         exwm
+                        emojify
                         flycheck
                         flyspell-correct-ivy
                         gpastel
@@ -22,7 +24,7 @@
                         magit
                         markdown-preview-mode
                         multiple-cursors
-                        nyan-mode
+                        poke-line
                         projectile
                         protobuf-mode
                         rainbow-delimiters
@@ -37,6 +39,7 @@
                         which-key
                         winum
                         yaml-mode
+                        yasnippet
                         ))
 (utils-install-packages core-packages)
 
@@ -67,7 +70,7 @@
 (setq doom-modeline-height 30)
 
 ;; My favorite font
-(set-frame-font "DejaVu Sans Mono 11" nil t)
+(set-frame-font "JetBrains Mono 12" nil t)
 
 ;; Jump to window
 (winum-mode)
@@ -140,7 +143,7 @@ With argument ARG, do this that many times."
   (interactive)
   (progn (text-scale-adjust 0) (text-scale-decrease 2)))
 
-;; I like when treemacs is more compact then other parts
+;; ;; I like when treemacs is more compact then other parts
 (add-hook 'treemacs-mode-hook 'text-scale-twice)
 
 ;; Whitespace-cleanup all files in project
@@ -168,7 +171,55 @@ With argument ARG, do this that many times."
         (user :default "irma")
         (database :default "irma.ensemble")))
 
-(nyan-mode)
+(poke-line-global-mode)
+(poke-line-set-random-pokemon)
 (setq vterm-shell "fish")
+
+(setq yas-wrap-around-region t)
+
+(use-package transient)
+(use-package tshell
+  :after transient
+  :load-path "tshell")
+
+;; Enable SSL on rcirc
+(setq rcirc-server-alist
+      '(("irc.freenode.net" :port 6697 :encryption tls
+         :channels ("#rcirc" "#emacs" "#emacswiki"))))
+
+;; Enable emoji
+(emojify-mode)
+
+;; Window management
+(defun split-window-below-and-focus ()
+  "Split the window vertically and focus the new window."
+  (interactive)
+  (split-window-below)
+  (run-at-time "0.1 seconds" nil
+               (lambda ()
+                 (windmove-down)
+                 (when (and (boundp 'golden-ratio-mode)
+                            (symbol-value golden-ratio-mode))
+                   (golden-ratio)))))
+
+(defun split-window-right-and-focus ()
+  "Split the window vertically and focus the new window."
+  (interactive)
+  (split-window-right)
+  (run-at-time "0.1 seconds" nil
+               (lambda ()
+                 (windmove-right)
+                 (when (and (boundp 'golden-ratio-mode)
+                            (symbol-value golden-ratio-mode))
+                   (golden-ratio)))))
+
+;; Enable full screen mode
+(defun toggle-maximize-buffer () "Maximize buffer"
+  (interactive)
+  (if (= 1 (length (cl-remove-if #'treemacs-is-treemacs-window? (window-list))))
+      (jump-to-register '_)
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
 
 (provide 'core)

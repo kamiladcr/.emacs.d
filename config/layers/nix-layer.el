@@ -5,7 +5,7 @@
 
 (defun setup-nix-mode ()
   (interactive)
-  ;(add-to-list 'company-backends 'company-nixos-options)
+  (add-to-list 'company-backends 'company-nixos-options)
   )
 
 (add-hook 'nix-mode-hook #'setup-nix-mode)

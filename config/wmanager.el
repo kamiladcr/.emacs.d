@@ -19,20 +19,18 @@
 
 (defun terminal-new ()
   (interactive)
-  (vterm))
-
-(defun terminal-toggle ()
-  (interactive)
-  (vterm-toggle))
+  (when-let (root (projectile-project-root))
+    (cd root))
+  (start-process-shell-command "Alacritty" nil "alacritty"))
 
 (defun monitor-external-disable ()
   (interactive)
-  (shell-command "xrandr --output eDP1 --primary --auto --output DP1-1-8 --off")
+  (shell-command "xrandr --output eDP-1 --primary --auto --output DP-1-1-8 --off")
   (message "Disable external monitor"))
 
 (defun monitor-external-enable ()
   (interactive)
-  (shell-command "xrandr --output eDP1 --off --output DP1-1-8 --auto --primary")
+  (shell-command "xrandr --output eDP-1 --off --output DP-1-1-8 --auto --primary")
   (message "Enable external monitor"))
 
 (defun pulseaudio-ctl (cmd)
@@ -40,15 +38,15 @@
   (message "Volume command: %s" cmd))
 
 (defun volume-mute ()
-  (interactive) (pulseaudio-ctl "mute")
+  (interactive) (shell-command "pactl set-sink-mute \"alsa_output.pci-0000_00_1f.3.analog-stereo\" toggle")
   (message "Speakers mute toggled"))
 
 (defun volume-up ()
-  (interactive) (pulseaudio-ctl "up")
+  (interactive) (shell-command "pactl set-sink-volume \"alsa_output.pci-0000_00_1f.3.analog-stereo\" +5%")
   (message "Speakers volume up"))
 
 (defun volume-down ()
-  (interactive) (pulseaudio-ctl "down")
+  (interactive) (shell-command "pactl set-sink-volume \"alsa_output.pci-0000_00_1f.3.analog-stereo\" -5%")
   (message "Speakers volume down"))
 
 (defun brightness-up ()
@@ -61,34 +59,13 @@
   (shell-command "exec light -U 10")
   (message "Brightness decreased"))
 
-(defun toggle-maximize-buffer () "Maximize buffer"
-  (interactive)
-  (if (= 1 (length (window-list)))
-      (jump-to-register '_)
-    (progn
-      (window-configuration-to-register '_)
-      (delete-other-windows))))
-
-(defun exwm-counsel-yank-pop ()
-  "Same as `counsel-yank-pop' and paste into exwm buffer."
-  (interactive)
-  (let ((inhibit-read-only t)
-        ;; Make sure we send selected yank-pop candidate to
-        ;; clipboard:
-        (yank-pop-change-selection t))
-    (call-interactively #'counsel-yank-pop))
-  (when (derived-mode-p 'exwm-mode)
-    ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
-    (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
-    (exwm-input--fake-key ?\C-v)))
-
 ;; Monitor functions
 (setq monitor-current (alist-get 'name (frame-monitor-attributes)))
 (setq monitor-list (mapcar
                     (lambda (arg) (alist-get 'name arg))
                     (display-monitor-attributes-list)))
-(setq monitor-primary "eDP1")
-(setq monitor-external "DP1-1-8")
+(setq monitor-primary "eDP-1")
+(setq monitor-external "DP-1-1-8")
 
 (defun workspace-move (display)
   (plist-put exwm-randr-workspace-output-plist
@@ -109,11 +86,11 @@
 ;;-----------------------------------------------------------
 
 ;; Set 10 workspaces
-(setq exwm-workspace-number 9)
+(setq exwm-workspace-number 10)
 
 ;; Make buffers from all workspaces available in buffer-menu
-(setq exwm-workspace-show-all-buffers t)
-(setq exwm-layout-show-all-buffers t)
+;;(setq exwm-workspace-show-all-buffers 0)
+;;(setq exwm-layout-show-all-buffers t)
 
 ;; Buffer names equal to xwindow class name
 (defun exwm-rename-buffer ()
@@ -134,55 +111,38 @@
 (add-hook 'exwm-floating-exit-hook 'exwm-layout-show-mode-line)
 
 (add-hook 'exwm-init-hook 'monitor-external-enable)
-(add-hook 'exwm-init-hook 'gpastel-mode)
 
 (display-battery-mode)
 (setq display-time-format "%a %H:%M")
 (display-time-mode 1)
 
-(defvar exwm-mode-line-workspace-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map [mode-line mouse-1] 'exwm-workspace-switch)
-    map)
-  "Local keymap for EXWM mode line string.  See `exwm-mode-line-format'.")
-
-(defcustom exwm-mode-line-format
+(defcustom exwm-workspace-mode-line-format
   `("["
     (:propertize (:eval (format "WS-%d" exwm-workspace-current-index))
- local-map ,exwm-mode-line-workspace-map
- face bold
- mouse-face mode-line-highlight
- help-echo "mouse-1: Switch to / add / delete to EXWM workspaces.
-mouse-2: EXWM Workspace menu.
-")
+                 face bold
+                 mouse-face mode-line-highlight)
     "]")
   "EXWM workspace in the mode line."
   :type 'sexp)
 
-
-;; FIXME: Don't push the value.  Instead push a symbol.  If done, (1)
-;; this will avoid duplicate entries for EXWM workspace (2) The mode
-;; line string will change in sync with the value of
-;; `exwm-mode-line-format'.
-(add-to-list 'mode-line-misc-info exwm-mode-line-format t)
-
+(add-to-list 'mode-line-misc-info exwm-workspace-mode-line-format t)
 ;;-----------------------------------------------------------
 ;; EXWM Bindings
 ;;-----------------------------------------------------------
 
-(exwm-input-set-key (kbd "M-y") #'exwm-counsel-yank-pop)
+(define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
 
 ;; Emacs emulation for xwindows
 (setq exwm-input-simulation-keys
       '((,(kbd "C-b") . [left])
-        (,(kbd "C-b") . [right])
+        (,(kbd "C-f") . [right])
         (,(kbd "C-p") . [up])
         (,(kbd "C-n") . [down])
         (,(kbd "C-a") . [home])
         (,(kbd "C-e") . [end])
         (,(kbd "C-d") . [delete])
-        (,(kbd "M-w") . (kbd "C-c"))
-        (,(kbd "C-y") . (kbd "C-v"))))
+        (,(kbd "C-y") . ?\C-v)
+        (,(kbd "M-w") . ?\C-c)))
 
 ;; Global EXWM keybindings
 (setq exwm-input-global-keys
@@ -190,13 +150,12 @@ mouse-2: EXWM Workspace menu.
       `((,(kbd "s-r")                     . exwm-reset)
         (,(kbd "s-w")                     . exwm-workspace-switch)
         (,(kbd "s-f")                     . toggle-maximize-buffer)
-        (,(kbd "s-q")                     . kill-this-buffer)
-        (,(kbd "s-Q")                     . kill-buffer-and-window)
         (,(kbd "s-d")                     . counsel-linux-app)
-        (,(kbd "s-l")                     . screen-lock)
+        (,(kbd "s-L")                     . screen-lock)
         (,(kbd "<print>")                 . screenshot)
         (,(kbd "s-<return>")              . terminal-new)
         (,(kbd "s-i")                     . exwm-input-toggle-keyboard)
+        (,(kbd "M-<tab>")                 . exwm-workspace-switch-to-buffer)
 
         ;; External monitor
         (,(kbd "s-m <up>")                . monitor-external-enable)
@@ -204,23 +163,27 @@ mouse-2: EXWM Workspace menu.
         (,(kbd "s-m S-<up>")              . workspace-move-to-external)
         (,(kbd "s-m S-<down>")            . workspace-move-to-primary)
 
-        ;; Resize buffers
+        ;; Switch focus
         (,(kbd "s-<left>")                . windmove-left)
         (,(kbd "s-<right>")               . windmove-right)
         (,(kbd "s-<down>")                . windmove-down)
         (,(kbd "s-<up>")                  . windmove-up)
-
-        ;; Resize buffers
-        (,(kbd "s-S-<left>")              . shrink-window-horizontally)
-        (,(kbd "s-S-<right>")             . enlarge-window-horizontally)
-        (,(kbd "s-S-<down>")              . shrink-window)
-        (,(kbd "s-S-<up>")                . enlarge-window)
+        (,(kbd "s-h")                     . windmove-left)
+        (,(kbd "s-l")                     . windmove-right)
+        (,(kbd "s-j")                     . windmove-down)
+        (,(kbd "s-k")                     . windmove-up)
 
         ;; Move buffers
-        (,(kbd "s-b <up>")                . buf-move-up)
-        (,(kbd "s-b <down>")              . buf-move-down)
-        (,(kbd "s-b <left>")              . buf-move-left)
-        (,(kbd "s-b <right>")             . buf-move-right)
+        (,(kbd "s-S <up>")                . buf-move-up)
+        (,(kbd "s-S <down>")              . buf-move-down)
+        (,(kbd "s-S <left>")              . buf-move-left)
+        (,(kbd "s-S <right>")             . buf-move-right)
+
+        ;; Resize buffers
+        (,(kbd "C-M-<left>")              . shrink-window-horizontally)
+        (,(kbd "C-M-<right>")             . enlarge-window-horizontally)
+        (,(kbd "C-M-<up>")                . shrink-window)
+        (,(kbd "C-M-<down>")              . enlarge-window)
 
         ;; Media control
         (,(kbd "<XF86AudioMute>")         . volume-mute)
@@ -229,9 +192,9 @@ mouse-2: EXWM Workspace menu.
         (,(kbd "<XF86MonBrightnessDown>") . brightness-down)
         (,(kbd "<XF86MonBrightnessUp>")   . brightness-up)
 
-        ;; Switch window by s-o N
+        ;; ;; Switch window by s-o N
         ,@(mapcar (lambda (i)
-                    `(,(kbd (format "s-o %d" i)) .
+                    `(,(kbd (format "M-%d" i)) .
                       (lambda ()
                         (interactive)
                         (winum-select-window-by-number ,i))))
@@ -242,7 +205,7 @@ mouse-2: EXWM Workspace menu.
                     `(,(kbd (format "s-%d" i)) .
                       (lambda ()
                         (interactive)
-                        (exwm-workspace-switch-create ,i))))
+                        (exwm-workspace-switch ,i))))
                   (number-sequence 0 9))))
 
 ;; Enable EXWM
@@ -250,7 +213,7 @@ mouse-2: EXWM Workspace menu.
 
 ;; Randr config
 (setq exwm-randr-workspace-monitor-plist
-  '(0 "eDP1" 1 "DP1-1-8"))
+  '(0 "eDP-1" 1 "DP-1-1-8"))
 (exwm-randr-enable)
 
 (provide 'wmanager)

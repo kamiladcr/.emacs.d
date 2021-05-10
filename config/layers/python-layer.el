@@ -1,10 +1,14 @@
 (utils-install-packages '(
-                          company-jedi
+                          lsp-python-ms
+                          highlight-indent-guides
+                          lsp-mode
                           ))
 
 (defun setup-python-mode ()
   (interactive)
-  (push 'company-jedi company-backends)
+  (setq lsp-python-ms-executable (executable-find "python-language-server"))
+  (highlight-indent-guides-mode)
+  (lsp)
   (setenv "PYTHONIOENCODING" "utf-8"))
 
 (add-hook 'python-mode-hook #'setup-python-mode)

@@ -20,6 +20,7 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; Force company
+(global-set-key (kbd "M-C-/") 'company-dabbrev)
 (global-set-key (kbd "M-/") 'company-complete)
 
 ;; Ace-jump-mode
@@ -38,7 +39,7 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Delete instead of kill
-(global-set-key (kbd "M-DEL") 'backward-delete-word)
+(global-set-key (kbd "C-<backspace>") 'backward-delete-word)
 
 ;; Flyspell via ivy
 (global-set-key (kbd "M-$") 'flyspell-correct-wrapper)
@@ -52,11 +53,6 @@
 ;; Copy paste for others
 (global-set-key (kbd "C-z") 'undo-tree-undo)
 
-;; Tabs
-(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
-(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
-(global-set-key (kbd "C-c t s") 'centaur-tabs-counsel-switch-group)
-
 ;; flycheck
 (global-set-key (kbd "M-p")  'flycheck-previous-error)
 (global-set-key (kbd "M-n")  'flycheck-next-error)
@@ -65,7 +61,33 @@
 (global-set-key (kbd "C-c l h") 'lsp-ui-doc-show)
 (global-set-key (kbd "C-c l i") 'lsp-ui-imenu)
 
-(global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
-(global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-horizontally) (other-window 1)))
+(global-set-key (kbd "C-x 2") 'split-window-below-and-focus)
+(global-set-key (kbd "C-x 3") 'split-window-right-and-focus)
+(global-set-key (kbd "M-RET") 'make-frame-command)
+(global-set-key (kbd "C-x f") 'toggle-maximize-buffer)
+
+(with-eval-after-load 'magit-mode
+  (define-key magit-mode-map (kbd "M-1") nil)
+  (define-key magit-mode-map (kbd "M-2") nil)
+  (define-key magit-mode-map (kbd "M-3") nil)
+  (define-key magit-mode-map (kbd "M-4") nil))
+
+(global-set-key (kbd "M-1") 'winum-select-window-1)
+(global-set-key (kbd "M-2") 'winum-select-window-2)
+(global-set-key (kbd "M-3") 'winum-select-window-3)
+(global-set-key (kbd "M-4") 'winum-select-window-4)
+(global-set-key (kbd "M-5") 'winum-select-window-5)
+(global-set-key (kbd "M-6") 'winum-select-window-6)
+(global-set-key (kbd "M-7") 'winum-select-window-7)
+(global-set-key (kbd "M-8") 'winum-select-window-8)
+
+;; Resize buffers
+(global-set-key (kbd "C-M-<left>")  'shrink-window-horizontally)
+(global-set-key (kbd "C-M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-M-<up>")    'shrink-window)
+(global-set-key (kbd "C-M-<down>")  'enlarge-window)
+
+(with-eval-after-load 'yas-minor-mode
+  (yas-minor-mode-map (kbd "C-c y") #'yas-expand))
 
 (provide 'bindings)
