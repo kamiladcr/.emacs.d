@@ -5,11 +5,11 @@
 
 (defun setup-csharp-mode ()
   (interactive)
-  ;; (lsp)
+  (lsp)
   )
 
 (add-hook 'csharp-mode-hook 'setup-csharp-mode)
 
-;; (setq lsp-csharp-server-path "/nix/store/arpm2rim5l36m7phlcsrj9hhnbxrxhfq-omnisharp-roslyn-1.35.2/bin/omnisharp")
+(setq lsp-csharp-server-path (executable-find "omnisharp"))
 
 (provide 'csharp-layer)

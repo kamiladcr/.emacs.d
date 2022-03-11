@@ -1,5 +1,4 @@
 (defvar core-packages '(
-                        transient
                         all-the-icons
                         auto-package-update
                         buffer-move
@@ -9,12 +8,13 @@
                         company-quickhelp
                         counsel
                         counsel-projectile
+                        direnv
                         dockerfile-mode
                         doom-modeline
                         doom-themes
+                        emojify
                         exec-path-from-shell
                         exwm
-                        emojify
                         flycheck
                         flyspell-correct-ivy
                         gpastel
@@ -31,10 +31,12 @@
                         rainbow-mode
                         restclient
                         solaire-mode
+                        transient
                         treemacs
                         treemacs-magit
                         treemacs-projectile
                         undo-tree
+                        use-package
                         vterm
                         which-key
                         winum
@@ -42,6 +44,9 @@
                         yasnippet
                         ))
 (utils-install-packages core-packages)
+
+;; Use direnv
+(direnv-mode)
 
 ;; Use gpastel for kill ring
 (gpastel-mode)
@@ -175,6 +180,7 @@ With argument ARG, do this that many times."
 (poke-line-set-random-pokemon)
 (setq vterm-shell "fish")
 
+(yas-global-mode 1)
 (setq yas-wrap-around-region t)
 
 (use-package transient)

@@ -12,10 +12,15 @@
                  csharp-layer
                  nix-layer
                  rust-layer
-                 clisp-layer))
+                 clisp-layer
+                 go-layer
+                 elixir-layer))
+
+(require 'lsp)
 
 (add-hook 'before-save-hook
           (lambda ()
+            (lsp-format-buffer)
             (whitespace-cleanup)))
 
 (add-hook 'prog-mode-hook
@@ -26,8 +31,7 @@
             (push 'company-files company-backends)
             (show-paren-mode)
             (rainbow-mode)
-            (rainbow-delimiters-mode)
-            (yas-minor-mode)))
+            (rainbow-delimiters-mode)))
 
 (add-hook 'text-mode-hook
           (lambda ()

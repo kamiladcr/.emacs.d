@@ -1,11 +1,12 @@
 (utils-install-packages '(
                           nix-mode
+                          lsp-mode
                           company-nixos-options
                           ))
 
 (defun setup-nix-mode ()
   (interactive)
-  (add-to-list 'company-backends 'company-nixos-options)
+  (lsp)
   )
 
 (add-hook 'nix-mode-hook #'setup-nix-mode)

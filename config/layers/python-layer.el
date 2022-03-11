@@ -1,12 +1,12 @@
 (utils-install-packages '(
-                          lsp-python-ms
+                          lsp-pyright
                           highlight-indent-guides
                           lsp-mode
                           ))
 
 (defun setup-python-mode ()
   (interactive)
-  (setq lsp-python-ms-executable (executable-find "python-language-server"))
+  (require 'lsp-pyright)
   (highlight-indent-guides-mode)
   (lsp)
   (setenv "PYTHONIOENCODING" "utf-8"))
