@@ -17,6 +17,7 @@
                         exwm
                         flycheck
                         flyspell-correct-ivy
+                        format-all
                         gpastel
                         lsp-mode
                         lsp-treemacs

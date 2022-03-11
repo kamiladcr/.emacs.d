@@ -20,11 +20,12 @@
 
 (add-hook 'before-save-hook
           (lambda ()
-            (lsp-format-buffer)
+            (format-all-buffer)
             (whitespace-cleanup)))
 
 (add-hook 'prog-mode-hook
           (lambda ()
+            (format-all-mode)
             (flyspell-prog-mode)
             (company-quickhelp-mode)
             (display-line-numbers-mode)
