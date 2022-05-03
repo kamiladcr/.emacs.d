@@ -16,16 +16,13 @@
                  go-layer
                  elixir-layer))
 
-(require 'lsp)
-
 (add-hook 'before-save-hook
           (lambda ()
-            (format-all-buffer)
+            (lsp-format-buffer)
             (whitespace-cleanup)))
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (format-all-mode)
             (flyspell-prog-mode)
             (company-quickhelp-mode)
             (display-line-numbers-mode)
@@ -37,5 +34,7 @@
 (add-hook 'text-mode-hook
           (lambda ()
             (flyspell-mode)))
+
+(add-to-list 'auto-mode-alist '("\\.tf\\'" . hcl-mode))
 
 (provide 'layers)

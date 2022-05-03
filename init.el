@@ -1,8 +1,10 @@
 (require 'package)
 
+;; Initialize nix packages
+(package-initialize)
+
 ;; Configure MELPA repositories.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
 
 ;; Custom location for standard settings from M-x customize
 (setq custom-file (concat user-emacs-directory "config/custom.el"))
@@ -15,10 +17,11 @@
 ;; Import configuration packages
 (defun load-other-settings ()
   (mapc 'require '(utils
+                   desktop
                    core
                    bindings
-                   ;; wmanager
-                   layers)))
+                   layers
+                   )))
 
 (add-hook 'after-init-hook 'load-other-settings)
 

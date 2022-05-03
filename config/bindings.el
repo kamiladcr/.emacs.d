@@ -57,10 +57,6 @@
 (global-set-key (kbd "M-p")  'flycheck-previous-error)
 (global-set-key (kbd "M-n")  'flycheck-next-error)
 
-;; lsp-mode
-(global-set-key (kbd "C-c l h") 'lsp-ui-doc-show)
-(global-set-key (kbd "C-c l i") 'lsp-ui-imenu)
-
 (global-set-key (kbd "C-x 2") 'split-window-below-and-focus)
 (global-set-key (kbd "C-x 3") 'split-window-right-and-focus)
 (global-set-key (kbd "M-RET") 'make-frame-command)
@@ -86,6 +82,8 @@
 (global-set-key (kbd "C-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-M-<up>")    'shrink-window)
 (global-set-key (kbd "C-M-<down>")  'enlarge-window)
+
+(global-set-key (kbd "C-x C-d") 'ls-lisp--dired)
 
 (with-eval-after-load 'yas-minor-mode
   (yas-minor-mode-map (kbd "C-c y") #'yas-expand))

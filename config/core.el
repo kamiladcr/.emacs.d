@@ -1,3 +1,4 @@
+;; This is taken care by nix
 (defvar core-packages '(
                         all-the-icons
                         auto-package-update
@@ -37,7 +38,6 @@
                         treemacs-magit
                         treemacs-projectile
                         undo-tree
-                        use-package
                         vterm
                         which-key
                         winum
@@ -101,12 +101,6 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; Keep temporary files in tmp
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-
 ;; Enable global spellcheck
 (global-flycheck-mode)
 
@@ -115,9 +109,6 @@
 
 ;; Enable counsel-projectile front-end
 (counsel-projectile-mode)
-
-;; Auto-update packages
-(auto-package-update-maybe)
 
 ;; Enable recentf-mode
 (recentf-mode)
@@ -137,12 +128,6 @@ With argument ARG, do this that many times."
 With argument ARG, do this that many times."
   (interactive "p")
   (delete-word (- arg)))
-
-;; Keep your temporary files away from project
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
 
 ;; Treemacs to have smaller font
 (defun text-scale-twice ()
@@ -166,6 +151,8 @@ With argument ARG, do this that many times."
           (write-file pr))))))
 
 ;; Auto restart
+(setq lsp-keymap-prefix "C-c l")
+(setq lsp-enable-which-key-integration 1)
 (setq lsp-restart 'auto-restart)
 
 ;; Remove stupid default regex symbols
@@ -184,15 +171,10 @@ With argument ARG, do this that many times."
 (yas-global-mode 1)
 (setq yas-wrap-around-region t)
 
-(use-package transient)
-(use-package tshell
-  :after transient
-  :load-path "tshell")
-
 ;; Enable SSL on rcirc
 (setq rcirc-server-alist
       '(("irc.freenode.net" :port 6697 :encryption tls
-         :channels ("#rcirc" "#emacs" "#emacswiki"))))
+         :channels ("#rcirc" "#emacs" "#Emacs"))))
 
 ;; Enable emoji
 (emojify-mode)

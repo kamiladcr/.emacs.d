@@ -7,6 +7,8 @@
    [default default default italic underline success warning error])
  '(auto-revert-check-vc-info t)
  '(auto-revert-interval 2)
+ '(auto-save-file-name-transforms '((".*" "/tmp/" t)))
+ '(backup-directory-alist '((".*" . "/tmp/")))
  '(backward-delete-char-untabify-method 'hungry)
  '(blink-cursor-mode nil)
  '(c-basic-offset 4)
@@ -16,6 +18,8 @@
  '(company-require-match nil)
  '(company-selection-wrap-around t)
  '(company-tooltip-maximum-width 100)
+ '(custom-safe-themes
+   '("246a9596178bb806c5f41e5b571546bb6e0f4bd41a9da0df5dfbca7ec6e2250c" default))
  '(dabbrev-case-replace nil)
  '(default-input-method nil)
  '(delete-selection-mode t)
@@ -43,7 +47,6 @@
  '(lsp-restart 'interactive)
  '(lsp-signature-auto-activate nil)
  '(lsp-signature-render-documentation nil)
- '(lsp-sqls-server "~/Resoptima/sqls/sqls")
  '(lsp-ui-doc-delay 0.8)
  '(lsp-ui-doc-include-signature t)
  '(lsp-ui-doc-max-height 200)
@@ -57,9 +60,11 @@
  '(savehist-autosave-interval 30)
  '(savehist-mode t)
  '(scroll-bar-mode nil)
+ '(tab-bar-mode nil)
  '(tab-width 2)
  '(tool-bar-mode nil)
  '(treemacs-follow-mode t)
+ '(undo-tree-history-directory-alist '(("." . "~/.emacs.d/.undo-tree")))
  '(warning-suppress-types '((comp)))
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
@@ -71,7 +76,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ivy-current-match ((t (:extend t :background "dim gray"))))
+ '(ivy-current-match ((t nil)))
  '(ivy-highlight-face ((t nil)))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "#2aa198"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#b58900"))))
