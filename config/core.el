@@ -16,7 +16,6 @@
                         doom-themes
                         emojify
                         exec-path-from-shell
-                        exwm
                         flycheck
                         flyspell-correct-ivy
                         format-all
