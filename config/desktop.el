@@ -1,9 +1,13 @@
+;; Jump to window
+(winum-mode)
+
 ;; EXWM
 (require 'exwm)
 (require 'exwm-config)
 (require 'exwm-randr)
 (require 'exwm-systemtray)
 (require 'exwm-xim)
+(require 'exwm-layout)
 
 ;; (defun screenshot ()
 ;;   (interactive)
@@ -12,6 +16,42 @@
 ;; (defun suspend ()
 ;;   (interactive)
 ;;   (shell-command "systemctl suspend"))
+
+(defun exwm-layout--hide (id)
+  "Hide window ID."
+  (with-current-buffer (exwm--id->buffer id)
+    (unless (or (exwm-layout--iconic-state-p)
+                (and exwm--floating-frame
+                     (eq 4294967295. exwm--desktop)))
+      (exwm--log "Hide #x%x" id)
+      (when exwm--floating-frame
+        (let* ((container (frame-parameter exwm--floating-frame
+                                           'exwm-container))
+               (geometry (xcb:+request-unchecked+reply exwm--connection
+                             (make-instance 'xcb:GetGeometry
+                                            :drawable container))))
+          (setq exwm--floating-frame-position
+                (vector (slot-value geometry 'x) (slot-value geometry 'y)))
+          (exwm--set-geometry container exwm-layout--floating-hidden-position
+                              exwm-layout--floating-hidden-position
+                              1
+                              1)))
+      (xcb:+request exwm--connection
+          (make-instance 'xcb:ChangeWindowAttributes
+                         :window id :value-mask xcb:CW:EventMask
+                         :event-mask xcb:EventMask:NoEvent))
+      (xcb:+request exwm--connection
+          (make-instance 'xcb:UnmapWindow :window id))
+      (xcb:+request exwm--connection
+          (make-instance 'xcb:ChangeWindowAttributes
+                         :window id :value-mask xcb:CW:EventMask
+                         :event-mask (exwm--get-client-event-mask)))
+      (exwm-layout--set-state id xcb:icccm:WM_STATE:IconicState)
+      ;; Cumment that fix Chrome being unfocused
+      ;; (cl-pushnew xcb:Atom:_NET_WM_STATE_HIDDEN exwm--ewmh-state)
+      (exwm-layout--set-ewmh-state id)
+      (exwm-layout--auto-iconify)
+      (xcb:flush exwm--connection))))
 
 (defun screen-lock ()
   (interactive)
@@ -109,7 +149,7 @@
     (when (not (eq initial exwm-workspace-current-index))
       (setq *exwm-workspace-from-to*
             (cons initial exwm-workspace-current-index)))))
-(tab-bar-mode)
+
 ;; Buffer names equal to xwindow class name
 (defun exwm-rename-buffer ()
   (interactive)
@@ -128,7 +168,7 @@
 (add-hook 'exwm-floating-setup-hook #'exwm-layout-show-mode-line)
 ;; (add-hook 'exwm-floating-exit-hook 'exwm-layout-show-mode-line)
 
-(add-hook 'exwm-init-hook 'monitor-external-enable)
+;; (add-hook 'exwm-init-hook 'monitor-external-enable)
 
 (display-battery-mode)
 (setq display-time-format "%a %H:%M")
@@ -142,6 +182,14 @@
     "]")
   "EXWM workspace in the mode line."
   :type 'sexp)
+
+(defun toggle-maximize-buffer () "Maximize buffer"
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_) 
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
 
 (add-to-list 'mode-line-misc-info exwm-workspace-mode-line-format t)
 ;; ;;-----------------------------------------------------------
@@ -171,7 +219,7 @@
         (,(kbd "s-d")                     . counsel-linux-app)
         (,(kbd "s-L")                     . screen-lock)
         (,(kbd "<print>")                 . screenshot)
-        (,(kbd "s-<return>")              . terminal-new)
+        (,(kbd "s-<return>")              . vterm-toggle)
         (,(kbd "s-i")                     . exwm-input-toggle-keyboard)
         (,(kbd "s-j")                     . exwm-jump-to-buffer)
         
@@ -229,5 +277,10 @@
 (setq exwm-randr-workspace-monitor-plist
   '(0 "eDP-1" 1 "DP-1-1-8"))
 (exwm-randr-enable)
+
+;; First workspace is the default one
+(exwm-workspace-switch-create 1)
+
+(exwm-randr-refresh)
 
 (provide 'desktop)

@@ -15,15 +15,16 @@
 (add-to-list 'load-path (concat user-emacs-directory "config/layers"))
 
 ;; Import configuration packages
-(defun load-other-settings ()
+(defun initialize-settings ()
+  (interactive)
   (mapc 'require '(utils
-                   desktop
+                   ;; desktop
                    core
                    bindings
                    layers
                    )))
 
-(add-hook 'after-init-hook 'load-other-settings)
+(add-hook 'after-init-hook 'initialize-settings)
 
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)

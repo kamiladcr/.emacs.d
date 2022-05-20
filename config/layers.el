@@ -14,7 +14,9 @@
                  rust-layer
                  clisp-layer
                  go-layer
-                 elixir-layer))
+                 elixir-layer
+                 scheme-layer
+                 ))
 
 (add-hook 'before-save-hook
           (lambda ()

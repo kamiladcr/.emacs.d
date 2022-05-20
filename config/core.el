@@ -1,10 +1,11 @@
 ;; This is taken care by nix
-(defvar core-packages '(
+(utils-install-packages '(
                         all-the-icons
                         auto-package-update
                         buffer-move
                         centered-cursor-mode
                         cl-lib
+                        rotate
                         company
                         company-quickhelp
                         counsel
@@ -39,12 +40,13 @@
                         treemacs-projectile
                         undo-tree
                         vterm
+                        vterm-toggle
                         which-key
                         winum
                         yaml-mode
                         yasnippet
+                        hcl-mode
                         ))
-(utils-install-packages core-packages)
 
 ;; Use direnv
 (direnv-mode)
@@ -77,9 +79,6 @@
 
 ;; My favorite font
 (set-frame-font "JetBrains Mono 12" nil t)
-
-;; Jump to window
-(winum-mode)
 
 ;; Little help to remember the shortcuts
 (which-key-mode)
@@ -201,14 +200,5 @@ With argument ARG, do this that many times."
                  (when (and (boundp 'golden-ratio-mode)
                             (symbol-value golden-ratio-mode))
                    (golden-ratio)))))
-
-;; Enable full screen mode
-(defun toggle-maximize-buffer () "Maximize buffer"
-  (interactive)
-  (if (= 1 (length (cl-remove-if #'treemacs-is-treemacs-window? (window-list))))
-      (jump-to-register '_)
-    (progn
-      (window-configuration-to-register '_)
-      (delete-other-windows))))
 
 (provide 'core)
