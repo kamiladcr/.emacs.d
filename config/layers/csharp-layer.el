@@ -1,12 +1,10 @@
-(utils-install-packages '(
-                          csharp-mode
-                          lsp-mode
-                          ))
-
 (defun setup-csharp-mode ()
   (interactive)
-  (lsp)
-  )
+  (utils-install-packages '(
+                            csharp-mode
+                            lsp-mode
+                            ))
+  (lsp))
 
 (add-hook 'csharp-mode-hook 'setup-csharp-mode)
 

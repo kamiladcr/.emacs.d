@@ -1,10 +1,9 @@
-(utils-install-packages '(
-												  tide
-                          indium
-													))
-
 (defun setup-typescript-mode ()
   (interactive)
+  (utils-install-packages '(
+                            tide
+                            indium
+                            ))
   (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
@@ -15,8 +14,6 @@
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
 
 (add-hook 'typescript-mode-hook #'setup-typescript-mode)
 

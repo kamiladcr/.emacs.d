@@ -47,9 +47,6 @@
 ;; Kill emacs process on exit
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 
-;; Toggle treemacs
-(global-set-key (kbd "C-<tab>") 'treemacs)
-
 ;; Copy paste for others
 (global-set-key (kbd "C-z") 'undo-tree-undo)
 

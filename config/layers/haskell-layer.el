@@ -1,10 +1,9 @@
-(utils-install-packages '(
-                          haskell-mode
-                          lsp-haskell
-                          ))
-
 (defun setup-haskell-mode ()
   (interactive)
+  (utils-install-packages '(
+                            haskell-mode
+                            lsp-haskell
+                            ))
   (haskell-indentation-mode)
   (lsp)
   (lsp-ui-mode)

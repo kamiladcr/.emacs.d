@@ -1,13 +1,11 @@
-(utils-install-packages '(
-                          nix-mode
-                          lsp-mode
-                          company-nixos-options
-                          ))
-
 (defun setup-nix-mode ()
   (interactive)
-  (lsp)
-  )
+  (utils-install-packages '(
+                            nix-mode
+                            company-nixos-options
+                            )))
+
+(setq nix-nixfmt-bin "nixpkgs-fmt")
 
 (add-hook 'nix-mode-hook #'setup-nix-mode)
 

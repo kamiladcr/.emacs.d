@@ -1,10 +1,9 @@
-(utils-install-packages '(
-                          rustic
-                          lsp-mode
-                          ))
-
 (defun setup-rustic-mode ()
   (interactive)
+  (utils-install-packages '(
+                            rustic
+                            lsp-mode
+                            ))
   (lsp)
   )
 

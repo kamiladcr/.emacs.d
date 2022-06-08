@@ -1,10 +1,9 @@
-(utils-install-packages '(
-                          elixir-mode
-                          lsp-mode
-                          ))
-
 (defun setup-elixir-mode ()
   (interactive)
+  (utils-install-packages '(
+                            elixir-mode
+                            lsp-mode
+                            ))
   (lsp)
   )
 

@@ -1,6 +1,14 @@
 ;; Add 'modes' folder that contains other settings to load.
 (add-to-list 'load-path (concat user-emacs-directory "layers"))
 
+(utils-install-packages '(
+                          format-all
+                          protobuf-mode
+                          hcl-mode
+                          dockerfile-mode
+                          dumb-jump
+                          ))
+
 (mapc 'require '(text-layer
                  python-layer
                  javascript-layer
@@ -20,13 +28,13 @@
 
 (add-hook 'before-save-hook
           (lambda ()
-            (lsp-format-buffer)
-            (whitespace-cleanup)))
+            (whitespace-cleanup)
+            (format-all-buffer)))
 
 (add-hook 'prog-mode-hook
           (lambda ()
+            (company-mode)
             (flyspell-prog-mode)
-            (company-quickhelp-mode)
             (display-line-numbers-mode)
             (push 'company-files company-backends)
             (show-paren-mode)
@@ -37,6 +45,7 @@
           (lambda ()
             (flyspell-mode)))
 
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 (add-to-list 'auto-mode-alist '("\\.tf\\'" . hcl-mode))
 
 (provide 'layers)

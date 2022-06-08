@@ -1,9 +1,8 @@
-(utils-install-packages '(
-												  elm-mode
-													))
-
 (defun setup-elm-mode ()
 	(interactive)
+  (utils-install-packages '(
+                            elm-mode
+                            ))  
   (elm-mode)
   ;(add-to-list 'company-backends 'company-elm)
   )

@@ -1,9 +1,7 @@
 ;; This is taken care by nix
 (utils-install-packages '(
-                        all-the-icons
                         auto-package-update
                         buffer-move
-                        centered-cursor-mode
                         cl-lib
                         rotate
                         company
@@ -11,32 +9,19 @@
                         counsel
                         counsel-projectile
                         direnv
-                        dockerfile-mode
-                        doom-modeline
-                        doom-themes
                         emojify
                         exec-path-from-shell
                         flycheck
                         flyspell-correct-ivy
-                        format-all
                         gpastel
-                        lsp-mode
-                        lsp-treemacs
-                        lsp-ui
                         magit
                         markdown-preview-mode
                         multiple-cursors
-                        poke-line
                         projectile
-                        protobuf-mode
                         rainbow-delimiters
                         rainbow-mode
                         restclient
-                        solaire-mode
                         transient
-                        treemacs
-                        treemacs-magit
-                        treemacs-projectile
                         undo-tree
                         vterm
                         vterm-toggle
@@ -44,11 +29,9 @@
                         winum
                         yaml-mode
                         yasnippet
-                        hcl-mode
+                        mood-one-theme
+                        mood-line
                         ))
-
-;; Use direnv
-(direnv-mode)
 
 ;; Use gpastel for kill ring
 (gpastel-mode)
@@ -56,25 +39,9 @@
 ;; Shell should remember path
 (exec-path-from-shell-initialize)
 
-;; Transparent titlebar for Mac
-(add-to-list 'default-frame-alist
-             '(ns-transparent-titlebar . t))
-
-;; Doom theme
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-(load-theme 'doom-molokai t)
-
-;; or for treemacs users
-(setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-(doom-themes-treemacs-config)
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
-
-;; Make mode line a bit smaller
-(doom-modeline-mode)
-(setq doom-modeline-height 30)
+;; Set theme
+(load-theme 'mood-one t)
+(mood-line-mode t)
 
 ;; My favorite font
 (set-frame-font "JetBrains Mono 12" nil t)
@@ -127,14 +94,6 @@ With argument ARG, do this that many times."
   (interactive "p")
   (delete-word (- arg)))
 
-;; Treemacs to have smaller font
-(defun text-scale-twice ()
-  (interactive)
-  (progn (text-scale-adjust 0) (text-scale-decrease 2)))
-
-;; ;; I like when treemacs is more compact then other parts
-(add-hook 'treemacs-mode-hook 'text-scale-twice)
-
 ;; Whitespace-cleanup all files in project
 (defun projectile-whitespace-cleanup ()
   "Deletes trailing spaces from all projectile project files."
@@ -162,8 +121,6 @@ With argument ARG, do this that many times."
         (user :default "irma")
         (database :default "irma.ensemble")))
 
-(poke-line-global-mode)
-(poke-line-set-random-pokemon)
 (setq vterm-shell "fish")
 
 (yas-global-mode 1)
@@ -199,5 +156,8 @@ With argument ARG, do this that many times."
                  (when (and (boundp 'golden-ratio-mode)
                             (symbol-value golden-ratio-mode))
                    (golden-ratio)))))
+
+;; This is required for lsp-mode to work correctly with native compilation
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (provide 'core)

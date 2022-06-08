@@ -1,11 +1,11 @@
-(utils-install-packages '(
-                          js2-mode
-                          js2-refactor
-                          tide
-													))
-
 (defun setup-javascript-mode ()
   (interactive)
+  (utils-install-packages '(
+                            company-mode
+                            js2-mode
+                            js2-refactor
+                            tide
+                            ))
   (tide-setup)
   (tide-hl-identifier-mode +1)
   (company-mode +1))
