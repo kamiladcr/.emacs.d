@@ -2,25 +2,16 @@
                           fsharp-mode
                           highlight-indent-guides
                           company
-                          ;; eglot
-                          ;; eglot-fsharp
                           lsp-mode
                           ))
 
 (defun setup-fsharp-mode ()
   (interactive)
+  (setq lsp-fsharp-use-dotnet-tool-for-fsac 'f)
   (highlight-indent-guides-mode)
   (company-mode)
-  (lsp)
-  ;; (require 'eglot-fsharp)
-  ;; (defun eglot-fsharp--path-to-server ()
-  ;;   "Return FsAutoComplete path."
-  ;;   (file-truename "/home/ezemtsov/.dotnet/tools/fsautocomplete"))
-  ;; (eglot-ensure)
-  )
+  (lsp))
 
-(require 'eglot)
-;; (add-to-list 'eglot-server-programs '(fsharp-mode . ("/home/ezemtsov/.dotnet/tools/fsautocomplete" "--verbose")))
 (add-to-list 'auto-mode-alist '("\\.fsproj\\'" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.csproj\\'" . nxml-mode))
 

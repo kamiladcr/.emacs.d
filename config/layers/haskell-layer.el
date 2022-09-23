@@ -2,15 +2,11 @@
   (interactive)
   (utils-install-packages '(
                             haskell-mode
-                            lsp-haskell
+                            ;; lsp-haskell
                             ))
   (haskell-indentation-mode)
-  (lsp)
-  (lsp-ui-mode)
+  ;; (lsp)
   )
-
-(setq lsp-haskell-process-path-hie "ghcide")
-(setq lsp-haskell-process-args-hie "")
 
 (add-hook 'haskell-mode-hook 'setup-haskell-mode)
 

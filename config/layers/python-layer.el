@@ -2,9 +2,11 @@
   (interactive)
   (utils-install-packages '(
                             highlight-indent-guides
-                            eglot
+                            lsp-mode
+                            lsp-pyright
                             ))
-  (eglot-ensure)
+  (require 'lsp-pyright)
+  (lsp)
   (setenv "PYTHONIOENCODING" "utf-8"))
 
 (add-hook 'python-mode-hook #'setup-python-mode)

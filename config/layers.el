@@ -7,6 +7,7 @@
                           hcl-mode
                           dockerfile-mode
                           dumb-jump
+                          jinja2-mode
                           ))
 
 (mapc 'require '(text-layer
@@ -29,7 +30,8 @@
 (add-hook 'before-save-hook
           (lambda ()
             (whitespace-cleanup)
-            (format-all-buffer)))
+            ;; (format-all-buffer)
+            ))
 
 (add-hook 'prog-mode-hook
           (lambda ()

@@ -80,7 +80,7 @@
 (global-set-key (kbd "C-M-<up>")    'shrink-window)
 (global-set-key (kbd "C-M-<down>")  'enlarge-window)
 
-(global-set-key (kbd "C-x C-d") 'ls-lisp--dired)
+(global-set-key (kbd "C-x C-d") 'dired)
 
 (with-eval-after-load 'yas-minor-mode
   (yas-minor-mode-map (kbd "C-c y") #'yas-expand))
