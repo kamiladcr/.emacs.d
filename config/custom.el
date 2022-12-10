@@ -33,6 +33,7 @@
  '(initial-major-mode 'text-mode)
  '(initial-scratch-message "")
  '(json-reformat:indent-width 2)
+ '(lsp-diagnostics-disabled-modes '(*))
  '(lsp-lens-place-position 'above-line)
  '(lsp-restart 'interactive)
  '(lsp-signature-auto-activate nil)
