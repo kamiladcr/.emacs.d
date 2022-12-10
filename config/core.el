@@ -33,7 +33,13 @@
                         mood-line
                         howdoyou
                         cmake-mode
+                        dashboard
                         ))
+
+(dashboard-setup-startup-hook)
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)))
 
 ;; Use gpastel for kill ring
 (gpastel-mode)
@@ -46,7 +52,7 @@
 (mood-line-mode t)
 
 ;; My favorite font
-(set-frame-font "JetBrains Mono 12" nil t)
+(set-frame-font "Menlo 12" nil t)
 
 ;; Little help to remember the shortcuts
 (which-key-mode)

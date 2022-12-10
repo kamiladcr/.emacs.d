@@ -10,18 +10,16 @@
 (setq custom-file (concat user-emacs-directory "config/custom.el"))
 (load custom-file)
 
+
+
 ;; Add config folder that contains other settings to load.
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (add-to-list 'load-path (concat user-emacs-directory "config/layers"))
-(add-to-list 'load-path "~/Resoptima/depot/tools/emacs-pkgs/tvl")
-
-(require 'tvl)
 
 ;; Import configuration packages
 (defun initialize-settings ()
   (interactive)
   (mapc 'require '(utils
-                   ;; desktop
                    core
                    bindings
                    layers

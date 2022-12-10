@@ -20,6 +20,7 @@
  '(custom-safe-themes
    '("370109bfd8c7784bbf62e3f8c4f332aed0b915116e2d718bc7e2b8e0ebe35e10" default))
  '(dabbrev-case-replace nil)
+ '(dashboard-startup-banner 'logo)
  '(default-input-method nil)
  '(delete-selection-mode t)
  '(eglot-fsharp-server-verbose 1)
@@ -40,7 +41,7 @@
  '(markdown-command "pandoc -f gfm")
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(jinja2-mode cmake-mode howdoi dumb-jump company-mode lsp-bridge eglot projectile flycheck counsel company eglot-fsharp nano-modeline nano-theme mood-one-theme mood-line simple-modeline smart-mode-line ample-theme zenburn-theme modus-themes modus-vivendi molokai-theme monokai-pro-theme monokai-pro monokai-theme yasnippet multiple-cursors magit haskell-mode js2-refactor js2-mode lsp-mode dap-mode hcl-mode vterm-toggle lsp-ui lsp-treemacs rotate yaml-mode winum which-key vterm undo-tree treemacs-projectile treemacs-magit solaire-mode restclient rainbow-mode rainbow-delimiters protobuf-mode poke-line markdown-preview-mode gpastel format-all flyspell-correct-ivy exwm exec-path-from-shell emojify doom-themes doom-modeline dockerfile-mode direnv counsel-projectile company-quickhelp centered-cursor-mode buffer-move auto-package-update web-mode web-beautify tide tidal sly rustic nix-mode lsp-pyright lsp-haskell json-mode indium highlight-indent-guides go-mode fsharp-mode elm-mode elixir-mode csharp-mode company-web company-nixos-options))
+   '(dashboard howdoyou jinja2-mode cmake-mode howdoi dumb-jump company-mode lsp-bridge eglot projectile flycheck counsel company eglot-fsharp nano-modeline nano-theme mood-one-theme mood-line simple-modeline smart-mode-line ample-theme zenburn-theme modus-themes modus-vivendi molokai-theme monokai-pro-theme monokai-pro monokai-theme yasnippet multiple-cursors magit haskell-mode js2-refactor js2-mode lsp-mode dap-mode hcl-mode vterm-toggle lsp-ui lsp-treemacs rotate yaml-mode winum which-key vterm undo-tree treemacs-projectile treemacs-magit solaire-mode restclient rainbow-mode rainbow-delimiters protobuf-mode poke-line markdown-preview-mode gpastel format-all flyspell-correct-ivy exwm exec-path-from-shell emojify doom-themes doom-modeline dockerfile-mode direnv counsel-projectile company-quickhelp centered-cursor-mode buffer-move auto-package-update web-mode web-beautify tide tidal sly rustic nix-mode lsp-pyright lsp-haskell json-mode indium highlight-indent-guides go-mode fsharp-mode elm-mode elixir-mode csharp-mode company-web company-nixos-options))
  '(scroll-bar-mode nil)
  '(tab-bar-mode nil)
  '(tab-width 2)
@@ -63,7 +64,7 @@
  '(rainbow-delimiters-depth-1-face ((t (:foreground "#2aa198"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#b58900"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "#268bd2"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#dc322f"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "plum1"))))
  '(rainbow-delimiters-depth-5-face ((t (:foreground "#859900"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "#268bd2"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "#cb4b16"))))
