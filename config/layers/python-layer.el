@@ -6,6 +6,10 @@
                             lsp-pyright
                             ))
   (require 'lsp-pyright)
+  (setq indent-tabs-mode t)
+  (setq tab-width 4)
+  (setq lsp-signature-auto-activate t)
+  (setq python-indent-offset 4)
   (lsp)
   (setenv "PYTHONIOENCODING" "utf-8"))
 
