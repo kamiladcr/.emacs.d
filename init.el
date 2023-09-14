@@ -30,3 +30,6 @@
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+;; Switching between the windows
+(windmove-default-keybindings)
