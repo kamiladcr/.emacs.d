@@ -12,25 +12,12 @@
 
 (mapc 'require '(text-layer
                  python-layer
-                 javascript-layer
-                 typescript-layer
-                 elm-layer
                  haskell-layer
-                 tidal-layer
-                 fsharp-layer
-                 csharp-layer
-                 nix-layer
-                 rust-layer
-                 clisp-layer
-                 go-layer
-                 elixir-layer
-                 scheme-layer
                  ))
 
 (add-hook 'before-save-hook
           (lambda ()
             (whitespace-cleanup)
-            ;; (format-all-buffer)
             ))
 
 (add-hook 'prog-mode-hook

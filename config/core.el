@@ -52,7 +52,7 @@
 (mood-line-mode t)
 
 ;; My favorite font
-(set-frame-font "Menlo 12" nil t)
+;; (set-frame-font "Menlo 12" nil t)
 
 ;; Little help to remember the shortcuts
 (which-key-mode)

@@ -19,9 +19,10 @@
 ;; Import configuration packages
 (defun initialize-settings ()
   (interactive)
-  (mapc 'require '(utils
-                   core
+  (mapc 'require '(
                    bindings
+                   utils
+                   core
                    layers
                    )))
 

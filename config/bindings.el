@@ -40,7 +40,7 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "M-w") 'ivy-kill-ring-save)
 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
