@@ -34,3 +34,6 @@
 
 ;; Switching between the windows
 (windmove-default-keybindings)
+
+;; C-c C-v C-x
+(cua-mode t)
