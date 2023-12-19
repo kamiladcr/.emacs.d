@@ -23,6 +23,7 @@
  '(dashboard-startup-banner 'logo)
  '(default-input-method nil)
  '(delete-selection-mode t)
+ '(dired-listing-switches "-alh")
  '(eglot-fsharp-server-verbose 1)
  '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
  '(gc-cons-threshold 20000000)
@@ -42,7 +43,7 @@
  '(markdown-command "pandoc -f gfm")
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(lsp-pyright yasnippet yaml-mode winum which-key vterm-toggle undo-tree rotate restclient rainbow-mode rainbow-delimiters protobuf-mode multiple-cursors mood-one-theme mood-line markdown-preview-mode magit lsp-mode jinja2-mode howdoyou highlight-indent-guides hcl-mode gpastel fsharp-mode format-all flyspell-correct-ivy flycheck exec-path-from-shell emojify dumb-jump dockerfile-mode direnv dashboard counsel-projectile company-quickhelp cmake-mode buffer-move auto-package-update))
+   '(ess nix-mode lsp-pyright yasnippet yaml-mode winum which-key vterm-toggle undo-tree rotate restclient rainbow-mode rainbow-delimiters protobuf-mode multiple-cursors mood-one-theme mood-line markdown-preview-mode magit lsp-mode jinja2-mode howdoyou highlight-indent-guides hcl-mode gpastel fsharp-mode format-all flyspell-correct-ivy flycheck exec-path-from-shell emojify dumb-jump dockerfile-mode direnv dashboard counsel-projectile company-quickhelp cmake-mode buffer-move auto-package-update))
  '(scroll-bar-mode nil)
  '(tab-bar-mode nil)
  '(tab-width 2)
