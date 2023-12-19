@@ -34,6 +34,7 @@
                         howdoyou
                         cmake-mode
                         dashboard
+                        ess
                         ))
 
 (dashboard-setup-startup-hook)
@@ -165,14 +166,7 @@ With argument ARG, do this that many times."
                             (symbol-value golden-ratio-mode))
                    (golden-ratio)))))
 
-(defun nixos-config ()
-  (interactive)
-  (counsel-find-file-as-root "/etc/nixos/configuration.nix"))
-
 ;; This is required for lsp-mode to work correctly with native compilation
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
-
-(setq tvl-target-branch "master")
-(setq tvl-depot-path "~/Resoptima/irma")
 
 (provide 'core)
