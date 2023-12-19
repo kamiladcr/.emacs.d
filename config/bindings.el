@@ -89,6 +89,9 @@
 
 (global-set-key (kbd "C-x C-d") 'dired)
 
+;; Formatting
+(global-set-key (kbd "C-c f") 'format-all-buffer)
+
 (with-eval-after-load 'yas-minor-mode
   (yas-minor-mode-map (kbd "C-c y") #'yas-expand))
 
