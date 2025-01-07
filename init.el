@@ -10,30 +10,21 @@
 (setq custom-file (concat user-emacs-directory "config/custom.el"))
 (load custom-file)
 
-
-
 ;; Add config folder that contains other settings to load.
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (add-to-list 'load-path (concat user-emacs-directory "config/layers"))
 
-;; Import configuration packages
-(defun initialize-settings ()
+;; Add config folder that contains other settings to load.
+(add-to-list 'load-path (concat user-emacs-directory "config"))
+
+(defun settings-initialise ()
   (interactive)
-  (mapc 'require '(
-                   bindings
-                   utils
-                   core
-                   layers
-                   )))
+  (require 'utils)
+  (require 'core))
 
-(add-hook 'after-init-hook 'initialize-settings)
+(add-hook 'after-init-hook 'settings-initialise)
 
-(put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+(put 'scroll-left 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
-;; Switching between the windows
-(windmove-default-keybindings)
-
-;; C-c C-v C-x
-(cua-mode t)
+(put 'upcase-region 'disabled nil)

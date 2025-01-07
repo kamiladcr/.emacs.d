@@ -18,32 +18,43 @@
  '(company-selection-wrap-around t)
  '(company-tooltip-maximum-width 100)
  '(custom-safe-themes
-   '("370109bfd8c7784bbf62e3f8c4f332aed0b915116e2d718bc7e2b8e0ebe35e10" default))
+   '("24b6ade0e3cabdfee9fa487961b089d059e048d77fe13137ea4788c1b62bd99d"
+     "551320837bd87074e3de38733e0a8553618c13f7208eda8ec9633d59a70bc284"
+     "603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961"
+     "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
+     "2007ae44334eda7781d3d17a6235cd2d7f236e1b8b090e33c8e7feb74c92b634"
+     "370109bfd8c7784bbf62e3f8c4f332aed0b915116e2d718bc7e2b8e0ebe35e10"
+     default))
  '(dabbrev-case-replace nil)
  '(dashboard-startup-banner 'logo)
  '(default-input-method nil)
  '(delete-selection-mode t)
  '(dired-listing-switches "-alh")
- '(eglot-fsharp-server-verbose 1)
- '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
  '(gc-cons-threshold 20000000)
- '(haskell-stylish-on-save t)
  '(highlight-indent-guides-method 'bitmap)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(initial-major-mode 'text-mode)
  '(initial-scratch-message "")
  '(json-reformat:indent-width 2)
- '(lsp-diagnostics-disabled-modes '(*))
- '(lsp-lens-place-position 'above-line)
- '(lsp-restart 'interactive t)
- '(lsp-signature-auto-activate nil)
- '(lsp-signature-render-documentation nil)
  '(magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
  '(markdown-command "pandoc -f gfm")
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(ess nix-mode lsp-pyright yasnippet yaml-mode winum which-key vterm-toggle undo-tree rotate restclient rainbow-mode rainbow-delimiters protobuf-mode multiple-cursors mood-one-theme mood-line markdown-preview-mode magit lsp-mode jinja2-mode howdoyou highlight-indent-guides hcl-mode gpastel fsharp-mode format-all flyspell-correct-ivy flycheck exec-path-from-shell emojify dumb-jump dockerfile-mode direnv dashboard counsel-projectile company-quickhelp cmake-mode buffer-move auto-package-update))
+   '(auto-package-update buffer-move catppuccin-theme cmake-mode
+                         company-quickhelp counsel-projectile
+                         dashboard direnv dockerfile-mode
+                         dracula-theme dumb-jump emojify ess
+                         exec-path-from-shell flycheck flymake-ruff
+                         flyspell-correct-ivy format-all gpastel
+                         hcl-mode howdoyou htmlize impatient-mode
+                         jinja2-mode jinx jupyter magit
+                         markdown-preview-mode multiple-cursors
+                         nix-mode protobuf-mode python-mode
+                         rainbow-delimiters rainbow-mode restclient
+                         rotate undo-tree vterm-toggle web-mode winum
+                         yaml-mode yasnippet))
+ '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-bar-mode nil)
  '(tab-width 2)
@@ -55,7 +66,7 @@
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2)
  '(web-mode-sql-indent-offset 2)
- '(winum-scope 'frame-local))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
