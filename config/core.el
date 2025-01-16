@@ -81,6 +81,8 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
+(setq use-short-answers t)
+
 ;; Delete show delete instead of copying into kill ring
 (defun delete-word (arg)
   "Delete characters forward until encountering the end of a word.
@@ -264,6 +266,7 @@ With argument ARG, do this that many times."
 (global-set-key (kbd "C-x C-d") 'dired)
 
 (global-set-key (kbd "C-c f") 'format-all-buffer)
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; Delete instead of kill
 (global-set-key (kbd "C-<backspace>") 'backward-delete-word)
