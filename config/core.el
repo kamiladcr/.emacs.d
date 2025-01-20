@@ -183,12 +183,10 @@ With argument ARG, do this that many times."
 ;;   :config
 ;;   (load-theme 'dracula))
 
-;; (use-package catppuccin-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'catppuccin))
-
-(load-theme 'catppuccin :no-confirm)
+(use-package catppuccin-theme
+  :ensure t
+  :config
+  (load-theme 'catppuccin :no-confirm))
 
 (use-package org-mode
   :no-require
@@ -201,8 +199,8 @@ With argument ARG, do this that many times."
   ;; enable Python support in org mode
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)
-     (jupyter . t))))
+   '((python . t))))
+;;      (jupyter . t))))
 
 ;; org mode render images in emacs
 (use-package org-babel
