@@ -18,7 +18,13 @@
  '(company-selection-wrap-around t)
  '(company-tooltip-maximum-width 100)
  '(custom-safe-themes
-   '("24b6ade0e3cabdfee9fa487961b089d059e048d77fe13137ea4788c1b62bd99d" "551320837bd87074e3de38733e0a8553618c13f7208eda8ec9633d59a70bc284" "603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961" "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1" "2007ae44334eda7781d3d17a6235cd2d7f236e1b8b090e33c8e7feb74c92b634" "370109bfd8c7784bbf62e3f8c4f332aed0b915116e2d718bc7e2b8e0ebe35e10" default))
+   '("24b6ade0e3cabdfee9fa487961b089d059e048d77fe13137ea4788c1b62bd99d"
+     "551320837bd87074e3de38733e0a8553618c13f7208eda8ec9633d59a70bc284"
+     "603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961"
+     "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
+     "2007ae44334eda7781d3d17a6235cd2d7f236e1b8b090e33c8e7feb74c92b634"
+     "370109bfd8c7784bbf62e3f8c4f332aed0b915116e2d718bc7e2b8e0ebe35e10"
+     default))
  '(dabbrev-case-replace nil)
  '(dashboard-startup-banner 'logo)
  '(default-input-method nil)
@@ -35,7 +41,19 @@
  '(markdown-command "pandoc -f gfm")
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(which-key vterm projectile counsel company auto-package-update buffer-move catppuccin-theme cmake-mode company-quickhelp counsel-projectile dashboard direnv dockerfile-mode dracula-theme dumb-jump emojify ess exec-path-from-shell flycheck flymake-ruff flyspell-correct-ivy format-all gpastel hcl-mode howdoyou htmlize impatient-mode jinja2-mode jinx jupyter magit markdown-preview-mode multiple-cursors nix-mode protobuf-mode python-mode rainbow-delimiters rainbow-mode restclient rotate undo-tree vterm-toggle web-mode winum yaml-mode yasnippet))
+   '(auto-package-update buffer-move catppuccin-theme cmake-mode company
+                         company-quickhelp counsel counsel-projectile
+                         dashboard direnv dockerfile-mode
+                         dracula-theme dumb-jump eat emojify ess
+                         exec-path-from-shell flycheck flymake-ruff
+                         flyspell-correct-ivy format-all gpastel
+                         hcl-mode howdoyou htmlize impatient-mode
+                         jinja2-mode jinx jupyter magit
+                         markdown-preview-mode multiple-cursors
+                         nix-mode projectile protobuf-mode python-mode
+                         rainbow-delimiters rainbow-mode restclient
+                         rotate undo-tree vterm vterm-toggle web-mode
+                         which-key winum yaml-mode yasnippet))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-bar-mode nil)

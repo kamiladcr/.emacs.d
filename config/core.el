@@ -43,8 +43,7 @@
 
 (dashboard-setup-startup-hook)
 (setq dashboard-items '((recents  . 5)
-                        (bookmarks . 5)
-                        (projects . 5)))
+                        (projects . 8)))
 
 ;; Use gpastel for kill ring
 (gpastel-mode)
@@ -268,5 +267,8 @@ With argument ARG, do this that many times."
 
 ;; Delete instead of kill
 (global-set-key (kbd "C-<backspace>") 'backward-delete-word)
+
+;; Search in the current buffer
+(global-set-key (kbd "C-s") 'swiper)
 
 (provide 'core)
