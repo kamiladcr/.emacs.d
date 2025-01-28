@@ -43,7 +43,13 @@
 
 (dashboard-setup-startup-hook)
 (setq dashboard-items '((recents  . 5)
-                        (projects . 8)))
+                        (bookmarks  . 5)
+                        (projects . 5)))
+
+(setq bookmark-save-flag 1)
+
+;; refresh buffer when file changes
+(global-auto-revert-mode t)
 
 ;; Use gpastel for kill ring
 (gpastel-mode)
@@ -187,19 +193,14 @@ With argument ARG, do this that many times."
   :config
   (load-theme 'catppuccin :no-confirm))
 
+(use-package jupyter
+  :ensure t)
+
 (use-package org-mode
   :no-require
   :hook
   (org-mode . (lambda ()
-                (add-hook 'after-save-hook 'org-html-export-to-html t t)))
-  :config
-  ;; don't ask for confirmation before executing code blocks
-  (setq org-confirm-babel-evaluate nil)
-  ;; enable Python support in org mode
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t))))
-;;      (jupyter . t))))
+                (add-hook 'after-save-hook 'org-html-export-to-html t t))))
 
 ;; org mode render images in emacs
 (use-package org-babel
@@ -207,7 +208,14 @@ With argument ARG, do this that many times."
   :config
   (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook
-            'org-redisplay-inline-images))
+            'org-redisplay-inline-images)
+  ;; don't ask for confirmation before executing code blocks
+  (setq org-confirm-babel-evaluate nil)
+  ;; enable Python support in org mode
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)
+     (jupyter . t))))
 
 (add-hook 'org-mode-hook 'visual-line-mode)
 

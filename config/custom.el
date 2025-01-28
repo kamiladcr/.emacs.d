@@ -50,10 +50,11 @@
                          hcl-mode howdoyou htmlize impatient-mode
                          jinja2-mode jinx jupyter magit
                          markdown-preview-mode multiple-cursors
-                         nix-mode projectile protobuf-mode python-mode
-                         rainbow-delimiters rainbow-mode restclient
-                         rotate undo-tree vterm vterm-toggle web-mode
-                         which-key winum yaml-mode yasnippet))
+                         nix-mode org-babel projectile protobuf-mode
+                         python-mode rainbow-delimiters rainbow-mode
+                         restclient rotate undo-tree vterm
+                         vterm-toggle web-mode which-key winum
+                         yaml-mode yasnippet))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-bar-mode nil)
