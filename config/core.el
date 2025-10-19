@@ -133,7 +133,6 @@ With argument ARG, do this that many times."
   (windmove-down))
 
 (defun split-window-right-and-focus ()
-  "Split the window vertically and focus the new window."
   (interactive)
   (split-window-right)
   (windmove-right))
@@ -173,21 +172,6 @@ With argument ARG, do this that many times."
   :init
   (windmove-default-keybindings)
   )
-
-(use-package web-mode
-  :ensure t
-  :mode
-  (("\\.html\\'" . web-mode)))
-
-;; (use-package color-theme-sanityinc-tomorrow
-;;   :ensure t
-;;   :config
-;;   (load-theme 'sanityinc-tomorrow-night))
-
-;; (use-package dracula-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'dracula))
 
 (use-package catppuccin-theme
   :ensure t
@@ -244,11 +228,11 @@ With argument ARG, do this that many times."
 
 (use-package claude-code-ide
   :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
-  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :bind ("C-c C-'" . claude-code-ide-menu)
   :custom
   (claude-code-ide-terminal-backend 'eat)
   :config
-  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+  (claude-code-ide-emacs-tools-setup))
 
 (use-package eat
   :ensure t)
