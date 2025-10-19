@@ -41,20 +41,23 @@
  '(markdown-command "pandoc -f gfm")
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(auto-package-update buffer-move catppuccin-theme cmake-mode company
-                         company-quickhelp counsel counsel-projectile
-                         dashboard direnv dockerfile-mode
-                         dracula-theme dumb-jump eat emojify ess
-                         exec-path-from-shell flycheck flymake-ruff
-                         flyspell-correct-ivy format-all gpastel
-                         hcl-mode howdoyou htmlize impatient-mode
-                         jinja2-mode jinx jupyter magit
+   '(auto-package-update buffer-move catppuccin-theme claude-code-ide
+                         cmake-mode company company-quickhelp counsel
+                         counsel-projectile dashboard direnv
+                         dockerfile-mode dracula-theme dumb-jump eat
+                         emojify ess exec-path-from-shell flycheck
+                         flymake-ruff flyspell-correct-ivy format-all
+                         gpastel hcl-mode howdoyou htmlize
+                         impatient-mode jinja2-mode jinx jupyter magit
                          markdown-preview-mode multiple-cursors
-                         nix-mode org-babel projectile protobuf-mode
-                         python-mode rainbow-delimiters rainbow-mode
-                         restclient rotate undo-tree vterm
-                         vterm-toggle web-mode which-key winum
+                         nix-mode org-babel ox-gfm projectile
+                         protobuf-mode python-mode rainbow-delimiters
+                         rainbow-mode restclient rotate undo-tree
+                         vterm vterm-toggle web-mode which-key winum
                          yaml-mode yasnippet))
+ '(package-vc-selected-packages
+   '((claude-code-ide :url
+                      "https://github.com/manzaltu/claude-code-ide.el")))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-bar-mode nil)

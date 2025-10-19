@@ -3,42 +3,43 @@
                         auto-package-update
                         buffer-move
                         cl-lib
-                        rotate
+                        cmake-mode
                         company
                         company-quickhelp
                         counsel
                         counsel-projectile
+                        dashboard
                         direnv
+                        dockerfile-mode
+                        dumb-jump
                         emojify
+                        ess
                         exec-path-from-shell
                         flyspell-correct-ivy
+                        format-all
                         gpastel
+                        howdoyou
+                        jinja2-mode
                         magit
                         markdown-preview-mode
                         multiple-cursors
+                        nix-mode
+                        ox-gfm
                         projectile
+                        protobuf-mode
                         rainbow-delimiters
                         rainbow-mode
                         restclient
+                        rotate
                         transient
                         undo-tree
                         vterm
                         vterm-toggle
+                        web-mode
                         which-key
                         winum
                         yaml-mode
                         yasnippet
-                        howdoyou
-                        cmake-mode
-                        dashboard
-                        ess
-                        nix-mode
-                        web-mode
-                        format-all
-                        protobuf-mode
-                        dockerfile-mode
-                        dumb-jump
-                        jinja2-mode
                         ))
 
 (dashboard-setup-startup-hook)
@@ -206,7 +207,6 @@ With argument ARG, do this that many times."
 (use-package org-babel
   :no-require
   :config
-  (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook
             'org-redisplay-inline-images)
   ;; don't ask for confirmation before executing code blocks
@@ -241,6 +241,17 @@ With argument ARG, do this that many times."
   :hook (emacs-startup . global-jinx-mode)
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages)))
+
+(use-package claude-code-ide
+  :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
+  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :custom
+  (claude-code-ide-terminal-backend 'eat)
+  :config
+  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+
+(use-package eat
+  :ensure t)
 
 (add-hook 'prog-mode-hook
           (lambda ()
