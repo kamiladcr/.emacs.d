@@ -48,3 +48,19 @@
   :bind (:map ewm-mode-map
               ("s-t" . tab-bar-new-tab)
               ("s-<return>" . alacritty)))
+
+(defun my/org-paste-clipboard-image ()
+  "Save clipboard image via wl-paste and insert an org link."
+  (interactive)
+  (let* ((dir (concat (file-name-directory (buffer-file-name)) "images/"))
+         (name (format "screenshot_%s.png" (format-time-string "%Y%m%d_%H%M%S")))
+         (path (concat dir name)))
+    (make-directory dir t)
+    (unless (= 0 (call-process "wl-paste" nil `(:file ,path) nil "--type" "image/png"))
+      (delete-file path)
+      (user-error "No image in clipboard"))
+    (insert (format "[[file:images/%s]]" name))))
+
+(with-eval-after-load 'org
+  (setq org-image-actual-width 400)
+  (define-key org-mode-map (kbd "C-M-y") #'my/org-paste-clipboard-image))
