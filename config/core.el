@@ -187,6 +187,14 @@ With argument ARG, do this that many times."
 ;;   (org-mode . (lambda ()
 ;;                 (add-hook 'after-save-hook 'org-html-export-to-html t t))))
 
+;; org capture for work notes
+(setq org-default-notes-file "~/OneDrive/work-notes/inbox.org")
+(global-set-key (kbd "C-c c") 'org-capture)
+(setq org-capture-templates
+      '(("w" "Work note" entry
+         (file+headline "~/OneDrive/work-notes/inbox.org" "Inbox")
+         "** %U %?\n")))
+
 ;; org mode render images in emacs
 (use-package org-babel
   :no-require
