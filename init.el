@@ -28,3 +28,23 @@
 (put 'scroll-left 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(defun alacritty ()
+  (interactive)
+  (start-process-shell-command "alacritty" nil "alacritty"))
+
+(use-package emacs
+  :bind
+  ("C--" . text-scale-decrease)
+  ("C-=" . text-scale-increase))
+
+(use-package ewm
+  :config
+  (setq tab-bar-show nil)
+
+  (setq ewm-input-config
+        '((touchpad :natural-scroll t :tap t)))
+
+  :bind (:map ewm-mode-map
+              ("s-t" . tab-bar-new-tab)
+              ("s-<return>" . alacritty)))

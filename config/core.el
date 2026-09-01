@@ -181,11 +181,11 @@ With argument ARG, do this that many times."
 (use-package jupyter
   :ensure t)
 
-(use-package org-mode
-  :no-require
-  :hook
-  (org-mode . (lambda ()
-                (add-hook 'after-save-hook 'org-html-export-to-html t t))))
+;; (use-package org-mode
+;;   :no-require
+;;   :hook
+;;   (org-mode . (lambda ()
+;;                 (add-hook 'after-save-hook 'org-html-export-to-html t t))))
 
 ;; org mode render images in emacs
 (use-package org-babel
