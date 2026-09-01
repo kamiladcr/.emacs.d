@@ -43,9 +43,21 @@
                         ))
 
 (dashboard-setup-startup-hook)
-(setq dashboard-items '((recents  . 5)
-                        (bookmarks  . 5)
-                        (projects . 5)))
+(setq dashboard-items '((recents . 10)
+                        (bookmarks . 5)))
+
+;; Set up bookmarks for dashboard quick access
+(require 'bookmark)
+(dolist (bm (reverse '(("Work Notes"   . "~/OneDrive/work-notes/")
+                        ("Projects"     . "~/OneDrive/projects/")
+                        ("Emacs Config" . "~/.emacs.d/")
+                        ("NixOS Config" . "/etc/nixos/")
+                        ("Niri Config"  . "~/.config/niri/"))))
+  (let ((name (car bm))
+        (path (expand-file-name (cdr bm))))
+    (bookmark-delete name t)
+    (bookmark-store name `((filename . ,path)) nil)))
+(bookmark-save)
 
 (setq bookmark-save-flag 1)
 
@@ -156,7 +168,6 @@ With argument ARG, do this that many times."
         ;; ("s" . projectile-rip)
         ))
 
-(setq dashboard-projects-backend 'projectile)
 
 (use-package web-mode
   :defer t

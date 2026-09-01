@@ -49,8 +49,9 @@
               ("s-t" . tab-bar-new-tab)
               ("s-<return>" . alacritty)))
 
+
+;; save clipboard image via wl-paste and insert in org file
 (defun my/org-paste-clipboard-image ()
-  "Save clipboard image via wl-paste and insert an org link."
   (interactive)
   (let* ((dir (concat (file-name-directory (buffer-file-name)) "images/"))
          (name (format "screenshot_%s.png" (format-time-string "%Y%m%d_%H%M%S")))
